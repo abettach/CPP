@@ -44,6 +44,7 @@ void	table_header()
 int main() {
 	Phonebook book[8];
 	int i = 0;
+	int index;
 	int j = 0;
 	char command[15];
 	title();
@@ -65,15 +66,14 @@ int main() {
 				book[i].get_phone_number();
 				book[i].get_birthday_date();
 				book[i].get_favorite_meal();
-				// book[i].get_underwear_color();
-				// book[i].get_darkest_secret();
+				book[i].get_underwear_color();
+				book[i].get_darkest_secret();
 				i++;
 			}
 			else
-			{
 				std::cout<<"\e[1;31mSorry. you have alredy 8 contact !!\n\e[0;37m";
-			}
 		}
+		int err = 1;
 		if (strcmp(command, "SEARCH") == 0 || strcmp(command, "search") == 0)
 		{
 			table_header();
@@ -85,6 +85,42 @@ int main() {
 				j++;
 			}
 			std::cout<<std::endl<<"\e[1;31m--------------------------------------------\n\e[0;37m";
+			while (err != 0)
+			{
+				err = 0;
+				std::cout<<std::endl<<"- put index betwen 0 and "<<i-1<<" :";
+				std::cin>>index;
+				if (index > i || index < 0)
+				{
+					err = 1;
+					std::cout<<"Error your index is invalide pleas put a valid one"<<std::endl;
+				}
+			}
+			if (index >= 0)
+			{
+				std::cout<<std::endl<<"\e[0;35mfirst name     :\e[0;37m";
+				book[index].print_firstname(1);
+				std::cout<<std::endl<<"\e[0;35mlast name      :\e[0;37m";
+				book[index].print_lastname();
+				std::cout<<std::endl<<"\e[0;35mnickname       :\e[0;37m";
+				book[index].print_nickname();
+				std::cout<<std::endl<<"\e[0;35mlogin          :\e[0;37m";
+				book[index].print_login();
+				std::cout<<std::endl<<"\e[0;35mpostat address :\e[0;37m";
+				book[index].print_postal_address();
+				std::cout<<std::endl<<"\e[0;35memail address  :\e[0;37m";
+				book[index].print_email_address();
+				std::cout<<std::endl<<"\e[0;35mphone number   :\e[0;37m";
+				book[index].print_phone_number();
+				std::cout<<std::endl<<"\e[0;35mbirthday date  :\e[0;37m";
+				book[index].print_birthday_date();
+				std::cout<<std::endl<<"\e[0;35mfavorite meal  :\e[0;37m";
+				book[index].print_favorite_meal();
+				std::cout<<std::endl<<"\e[0;35munderwear color:\e[0;37m";
+				book[index].print_underwear_color();
+				std::cout<<std::endl<<"\e[0;35mdarkest secret :\e[0;37m";
+				book[index].print_darkest_secret();
+			}
 		}
 		if (strcmp(command, "EXIT") == 0 || strcmp(command, "exit") == 0)
 		{

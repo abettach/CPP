@@ -1,19 +1,19 @@
 #include "PhoneBook.hpp"
 
-void	Phonebook::print_firstname()
+void	Phonebook::print_firstname(int index)
 {
 	int i;
 	int len;
 	i = 0;
 	len = ft_strlen(first_name);
-	while (i < 10)
+	while (i < 10 || index == 1)
 	{
 		if(first_name[i])
     		std::cout<<first_name[i];
 		else
 			std::cout<<" ";
 		i++;
-		if (i == 9 && len > 10)
+		if (i == 9 && len > 10 && index == 0)
 		{
 			std::cout<<".";
 			i++;
@@ -225,7 +225,7 @@ void        Phonebook::get_print()
 {
 	int i =0;
 	int index = 1;
-	print_firstname();
+	print_firstname(0);
 	std::cout<<"\e[1;31m|\e[0;37m";
 	print_lastname();
 	std::cout<<"\e[1;31m|\e[0;37m";

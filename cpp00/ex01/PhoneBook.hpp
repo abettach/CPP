@@ -32,7 +32,7 @@ public:
     void		get_darkest_secret();
     //*********************************
     //printf contact info
-    void		print_firstname();
+    void		print_firstname(int index);
     void		print_lastname();
     void		print_nickname();
 	void 		print_login();
@@ -44,6 +44,7 @@ public:
 	void 		print_underwear_color();
 	void 		print_darkest_secret();
     void    	get_print();
+    void	    print_all(int i);
 
 };
 #endif
