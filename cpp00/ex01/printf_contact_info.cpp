@@ -1,234 +1,93 @@
-#include "PhoneBook.hpp"
+#include "main.hpp"
 
-void	Phonebook::print_firstname(int index)
+int		ft_strlen(std::string str)
+{
+	int i = 0;
+	while (str[i])
+		i++;
+	return i;
+}
+
+void	contact::print_firstname(int index)
 {
 	int i;
 	int len;
 	i = 0;
 	len = ft_strlen(first_name);
-	while (i < 10 || index == 1)
+	if (index == 1)
+		std::cout<<first_name;
+	else
+	while (i < 10)
 	{
-		if(first_name[i])
+		if(first_name[i] && i < 9)
     		std::cout<<first_name[i];
-		else
+		else if (!first_name[i] && ft_strlen(first_name) < 10)
+			while (i++  <= 9)
 			std::cout<<" ";
 		i++;
-		if (i == 9 && len > 10 && index == 0)
-		{
-			std::cout<<".";
-			i++;
-		}
 	}
+	if (i ==  10 && ft_strlen(first_name) >= 10)
+		std::cout<< ".";
 }
-void	Phonebook::print_lastname()
+
+void	contact::print_lastname(int index)
 {
 	int i;
 	int len;
 	i = 0;
 	len = ft_strlen(last_name);
+	if (index == 1)
+		std::cout<<last_name;
+	else
 	while (i < 10)
 	{
-		if(last_name[i])
+		if(last_name[i] && i < 9)
     		std::cout<<last_name[i];
-		else
-			std::cout<<" ";
+		else if (!last_name[i] && ft_strlen(last_name) < 10)
+			while (i++ <= 9)
+				std::cout<<" ";
 		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
 	}
+	if (i ==  10 && ft_strlen(last_name) >= 10)
+		std::cout<< ".";
 }
-void	Phonebook::print_nickname()
+void	contact::print_nickname(int index)
 {
 	int i;
 	int len;
 	len = ft_strlen(nickname);
 	i = 0;
+	if (index == 1)
+		std::cout<<nickname;
+	else
 	while (i < 10)
 	{
-		if(nickname[i])
+		if(nickname[i] && i < 9)
     		std::cout<<nickname[i];
-		else
-			std::cout<<" ";
+		else if (!nickname[i] && ft_strlen(nickname) < 10)
+			while (i++ <= 9)
+				std::cout<<" ";
 		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
 	}
-}
-void	Phonebook::print_login()
-{
-	int i;
-	int len;
-	len = ft_strlen(login);
-	i = 0;
-	while (i < 10)
-	{
-		if(login[i])
-    		std::cout<<login[i];
-		else
-			std::cout<<" ";
-		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
-	}
-}
-void 		Phonebook::print_postal_address()
-{
-	int i;
-	int len;
-	len = ft_strlen(postal_address);
-	i = 0;
-	while (i < 10)
-	{
-		if(postal_address[i])
-    		std::cout<<postal_address[i];
-		else
-			std::cout<<" ";
-		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
-	}
-}
-void 		Phonebook::print_email_address()
-{
-	int i;
-	int len;
-	len = ft_strlen(email_address);
-	i = 0;
-	while (i < 10)
-	{
-		if(email_address[i])
-    		std::cout<<email_address[i];
-		else
-			std::cout<<" ";
-		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
-	}
-}
-void 		Phonebook::print_phone_number()
-{
-	int i;
-	int len;
-	len = ft_strlen(phone_number);
-	i = 0;
-	while (i < 10)
-	{
-		if(phone_number[i])
-    		std::cout<<phone_number[i];
-		else
-			std::cout<<" ";
-		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
-	}
-}
-void 		Phonebook::print_birthday_date()
-{
-	int i;
-	int len;
-	len = ft_strlen(birthday_date);
-	i = 0;
-	while (i < 10)
-	{
-		if(birthday_date[i])
-    		std::cout<<birthday_date[i];
-		else
-			std::cout<<" ";
-		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
-	}
-}
-void 		Phonebook::print_favorite_meal()
-{
-	int i;
-	int len;
-	len = ft_strlen(favorite_meal);
-	i = 0;
-	while (i < 10)
-	{
-		if(favorite_meal[i])
-    		std::cout<<favorite_meal[i];
-		else
-			std::cout<<" ";
-		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
-	}
-}
-void 		Phonebook::print_underwear_color()
-{
-	int i;
-	int len;
-	len = ft_strlen(underwear_color);
-	i = 0;
-	while (i < 10)
-	{
-		if(underwear_color[i])
-    		std::cout<<underwear_color[i];
-		else
-			std::cout<<" ";
-		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
-	}
-}
-void 		Phonebook::print_darkest_secret()
-{
-	int i;
-	int len;
-	len = ft_strlen(darkest_secret);
-	i = 0;
-	while (i < 10)
-	{
-		if(darkest_secret[i])
-    		std::cout<<darkest_secret[i];
-		else
-			std::cout<<" ";
-		i++;
-		if (i == 9 && len > 10)
-		{
-			std::cout<<".";
-			i++;
-		}
-	}
+	if (i ==  10 && ft_strlen(nickname) >= 10)
+		std::cout<< ".";
 }
 
-void        Phonebook::get_print()
+void 		contact::print_phone_number()
 {
-	int i =0;
-	int index = 1;
+	std::cout<<phone_number;
+}
+void 		contact::print_darkest_secret()
+{
+    std::cout<<darkest_secret;
+}
+
+void        contact::phonebook_print()
+{
 	print_firstname(0);
 	std::cout<<"\e[1;31m|\e[0;37m";
-	print_lastname();
+	print_lastname(0);
 	std::cout<<"\e[1;31m|\e[0;37m";
-	print_nickname();
+	print_nickname(0);
 	std::cout<<"\e[1;31m|\e[0;37m";
 }
