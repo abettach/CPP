@@ -1,10 +1,10 @@
 #include "Zombie.hpp"
 
-int     main(void)
+int main()
 {
-    Zombie *zombie = newZombie("Zombie-in-the-heap");
-    randomChump("Zombie-in-the-stack");
-
-    delete zombie;
-    return 0;
+	Zombie	*z;
+	int		nbr;
+	z = zombieHorde(3, "Zombie");
+	delete[] z;
+	return (0);
 }

@@ -5,8 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS =	Zombie.cpp	\
 		main.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+		ZombieHorde.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
