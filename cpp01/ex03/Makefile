@@ -19,6 +19,7 @@ test:
 	@make re --no-print-directory
 	@make clean --no-print-directory
 	./War
+	@make fclean
 
 clean:
 	@$(RM) $(OBJ)
