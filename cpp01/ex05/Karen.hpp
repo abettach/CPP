@@ -3,7 +3,9 @@
 
 #include <iostream>
 
-
+/*Declaring a pointer to a member function:
+return_type (class_name::*pointer_name) (parameter types)
+*/
 class Karen
 {
 	private:

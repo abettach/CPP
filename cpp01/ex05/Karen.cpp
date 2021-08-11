@@ -1,5 +1,9 @@
 #include "Karen.hpp"
 
+/*
+Setting a member function pointer to point to a member function:
+pointer_name = &class_name::member_function_name;
+*/
 
 Karen::Karen(void)
 {
