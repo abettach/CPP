@@ -16,7 +16,7 @@ $(NAME): $(OBJ)
 test:
 	@make re --no-print-directory
 	@make clean --no-print-directory
-	@./replace
+	@./replace replace.cpp replace pop
 	@make fclean --no-print-directory
 
 clean:

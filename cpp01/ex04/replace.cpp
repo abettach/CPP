@@ -14,11 +14,11 @@ int        ft_check_errors(std::string file_name, std::string str, std::string s
     }
     return 0;
 }
-void       replace(std::string file_name, std::string str, std::string str_replace)
+void       replace(std::string file_name, std::string s1, std::string s2)
 {
     std::ifstream file(file_name.c_str());
 
-    if (ft_check_errors(file_name, str, str_replace, file.is_open()))
+    if (ft_check_errors(file_name, s1, s2, file.is_open()))
         return ;
     std::stringstream string;
     string << file.rdbuf();
@@ -26,12 +26,12 @@ void       replace(std::string file_name, std::string str, std::string str_repla
     file.close(); // close the file(filename)
     std::string new_output;
     size_t position = 0;
-    while ((position = string_two.find(str)) < SIZE_MAX) // find the first char of str in the file if the str doesnt exist then return the max of size_t
+    while ((position = string_two.find(s1)) < SIZE_MAX) // find the first char of str in the file if the str doesnt exist then return the max of size_t
     {
         for(size_t i = 0; i < position ; i++)
              new_output.push_back(string_two[i]); // copy char by char to the new_output
-        string_two.erase(0, position + str.length()); // remove all caractere from first "file" from 0 to the position of the first char in str
-        new_output.append(str_replace); // add the string_replace to the end of new_output
+        string_two.erase(0, position + s1.length()); // remove all caractere from first "file" from 0 to the position of the first char in str
+        new_output.append(s2); // add the string_replace to the end of new_output
     }
     if (position == SIZE_MAX) // if str doesnt exist any more
         for (size_t i = 0; i < string_two.length() ; i++)
