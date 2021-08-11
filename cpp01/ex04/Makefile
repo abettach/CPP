@@ -13,16 +13,10 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-test:
-	@make re --no-print-directory
-	@make clean --no-print-directory
-	@./replace replace.cpp replace pop
-	@make fclean --no-print-directory
-
 clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
-	@$(RM) replace
+	@$(RM) $(NAME)
 
 re : fclean all

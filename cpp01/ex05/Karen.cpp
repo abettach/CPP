@@ -4,7 +4,6 @@
 Setting a member function pointer to point to a member function:
 pointer_name = &class_name::member_function_name;
 */
-
 Karen::Karen(void)
 {
 	this->pointer[0] = &Karen::debug;

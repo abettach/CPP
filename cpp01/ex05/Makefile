@@ -1,4 +1,4 @@
-NAME = karen
+NAME = Karen
 CC = c++
 RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror
@@ -13,16 +13,10 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-test:
-	@make re --no-print-directory
-	@make clean --no-print-directory
-	@./Karen $1
-	@make fclean --no-print-directory
-
 clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
-	@$(RM) karen
+	@$(RM) $(NAME)
 
 re : fclean all

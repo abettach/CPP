@@ -15,15 +15,10 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-test:
-	@make re --no-print-directory
-	@make clean --no-print-directory
-	./zombie
-
 clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
-	@$(RM) zombie
+	@$(RM) $(NAME)
 
 re : fclean all
