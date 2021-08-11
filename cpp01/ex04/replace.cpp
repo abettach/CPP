@@ -38,6 +38,5 @@ void       replace(std::string file_name, std::string str, std::string str_repla
             new_output.push_back(string_two[i]);
     std::ofstream new_file((file_name + ".replace").c_str()); // create a new file with name file_name.replace
     new_file << new_output; // copy all things in new_output to the new file
-
     new_file.close(); // close the file
 }
