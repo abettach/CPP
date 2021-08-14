@@ -14,6 +14,7 @@ int        ft_check_errors(std::string file_name, std::string str, std::string s
     }
     return 0;
 }
+
 void       replace(std::string file_name, std::string s1, std::string s2)
 {
     std::ifstream file(file_name.c_str());
