@@ -17,7 +17,7 @@ std::string     get_index(int err,int i)
     while (err != 0)
 	{
 		err = 0;
-		std::cout<<std::endl<<"- put index betwen 0 and "<<i-1<<" :";
+		std::cout<<std::endl<<"- put index betwen 0 and "<< i-1 <<" :";
 		std::getline(std::cin, index);
 		if (index[0] > (i + 48) || index[0] < 48)
 		{
@@ -47,6 +47,8 @@ int main() {
 	phonebook book;
 	std::string command;
 	int i = 0;
+	int yep = 0;
+	int nbr = 0;
 	std::string index;
 	
     title();
@@ -57,23 +59,29 @@ int main() {
 		std::cout<<std::endl;
 		if (command == "ADD" || command == "add")
 		{
+			if (i == 8)
+			{
+				nbr = 8;
+				yep = 1;
+				i = 0;
+			}
+			else if (i < 8 && yep == 0)
+				nbr++;
 			if (i < 8)
                 i += book.contacts[i].ft_add(i);
-			else
-				std::cout<<"\e[1;31mSorry. you have alredy 8 contact !!\n\e[0;37m";
 		}
 		else if (command == "SEARCH" || command == "search")
 		{
 			table_header();
-            for (int j = 0; j < i; j++)
+            for (int j = 0; j < nbr; j++)
             {
 		        std::cout<<"\n    "<<j<<"\e[1;31m     |\e[0;37m";
 		        book.contacts[j].phonebook_print();
 	        }
             std::cout<<std::endl<<"\e[1;31m--------------------------------------------\n\e[0;37m";
-            index = get_index(1, i);
-			if (index[0] >= 48)
-                book.contacts[(index[0] - 48)].print_all_contact_info();
+            index = get_index(1, nbr);
+			if (index[0] >= '0' && index[0] < '8')
+                book.contacts[(index[0] - '0')].print_all_contact_info();
 		}
 		else if (command == "EXIT" || command == "exit")
 			break;

@@ -31,4 +31,5 @@ class phonebook {
     public:
     contact contacts[8];
 };
+
 #endif
