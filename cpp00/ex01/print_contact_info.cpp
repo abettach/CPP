@@ -15,18 +15,20 @@ void	contact::print_firstname(int index)
 	i = 0;
 	len = ft_strlen(first_name);
 	if (index == 1)
-		std::cout<<first_name;
+		std::cout<< first_name;
 	else
-	while (i < 10)
-	{
-		if(first_name[i] && i < 9)
-    		std::cout<<first_name[i];
-		else if (!first_name[i] && ft_strlen(first_name) < 10)
-			while (i++  <= 9)
-			std::cout<<" ";
-		i++;
-	}
-	if (i ==  10 && ft_strlen(first_name) >= 10)
+		while (i < 10)
+		{
+			if(first_name[i] && i < 9)
+    			std::cout<<first_name[i];
+			else if (i == 9 && ft_strlen(first_name) == 10)
+				std::cout<<first_name[i];
+			else if (!first_name[i] && ft_strlen(first_name) < 10)
+				while (i++  <= 9)
+					std::cout<<" ";
+			i++;
+		}
+	if (i ==  10 && ft_strlen(first_name) >= 10 && ft_strlen(first_name) > 10)
 		std::cout<< ".";
 }
 
@@ -39,17 +41,19 @@ void	contact::print_lastname(int index)
 	if (index == 1)
 		std::cout<<last_name;
 	else
-	while (i < 10)
-	{
-		if(last_name[i] && i < 9)
-    		std::cout<<last_name[i];
-		else if (!last_name[i] && ft_strlen(last_name) < 10)
-			while (i++ <= 9)
-				std::cout<<" ";
-		i++;
-	}
-	if (i ==  10 && ft_strlen(last_name) >= 10)
-		std::cout<< ".";
+		while (i < 10)
+		{
+			if(last_name[i] && i < 9)
+    			std::cout<<last_name[i];
+			else if (i == 9 && ft_strlen(last_name) == 10)
+				std::cout<<last_name[i];
+			else if (!last_name[i] && ft_strlen(last_name) < 10)
+				while (i++ <= 9)
+					std::cout<<" ";
+			i++;
+		}
+		if (i ==  10 && ft_strlen(last_name) >= 10 && ft_strlen(last_name) > 10)
+			std::cout<< ".";
 }
 void	contact::print_nickname(int index)
 {
@@ -60,16 +64,18 @@ void	contact::print_nickname(int index)
 	if (index == 1)
 		std::cout<<nickname;
 	else
-	while (i < 10)
-	{
-		if(nickname[i] && i < 9)
-    		std::cout<<nickname[i];
-		else if (!nickname[i] && ft_strlen(nickname) < 10)
-			while (i++ <= 9)
-				std::cout<<" ";
-		i++;
-	}
-	if (i ==  10 && ft_strlen(nickname) >= 10)
+		while (i < 10)
+		{
+			if(nickname[i] && i < 9)
+    			std::cout<<nickname[i];
+			else if (i == 9 && ft_strlen(nickname) == 10)
+				std::cout<<nickname[i];
+			else if (!nickname[i] && ft_strlen(nickname) < 10)
+				while (i++ <= 9)
+					std::cout<<" ";
+			i++;
+		}
+	if (i ==  10 && ft_strlen(nickname) >= 10 && ft_strlen(nickname) > 10)
 		std::cout<< ".";
 }
 

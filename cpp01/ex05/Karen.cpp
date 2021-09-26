@@ -48,5 +48,5 @@ void    Karen::complain(std::string level)
 	for (std::size_t i = 0; i < 4; i++)
 		if (level.compare(KAREN_MESSAGE[i]) == 0) 
 			(this->*pointer[i])();
-  return;
+	return;
 }

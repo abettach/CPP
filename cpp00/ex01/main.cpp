@@ -19,7 +19,7 @@ std::string     get_index(int err,int i)
 		err = 0;
 		std::cout<<std::endl<<"- put index betwen 0 and "<< i-1 <<" :";
 		std::getline(std::cin, index);
-		if (index[0] > (i + 48) || index[0] < 48)
+		if (index[0] > (i + 48) || index[0] < 48 || index[1])
 		{
 			err = 1;
 			std::cout<<"Error your index is invalide pleas put a valid one"<<std::endl;
@@ -80,7 +80,7 @@ int main() {
 	        }
             std::cout<<std::endl<<"\e[1;31m--------------------------------------------\n\e[0;37m";
             index = get_index(1, nbr);
-			if (index[0] >= '0' && index[0] < '8')
+			if (index[0] >= '0' && index[0] < '8' && !index[1])
                 book.contacts[(index[0] - '0')].print_all_contact_info();
 		}
 		else if (command == "EXIT" || command == "exit")

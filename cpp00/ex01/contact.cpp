@@ -2,8 +2,25 @@
 
 void contact::get_first_name()
 {
+	std::string cpy;
+	int i = 0;
+	int j = 0;
+
 	std::cout<<"\e[0;35mfirst name     :\e[0;37m";
-	std::getline(std::cin, first_name);
+	std::getline(std::cin, cpy);
+	std::cout<< "cpy" << cpy;
+	while (cpy[i])
+	{
+		if (cpy[i] == '\t')
+		{
+			for (int nb = 0 ; nb < 4 ; nb++)
+				first_name[j++] = ' ';
+			i++;
+		}
+		else
+			first_name[j++] = cpy[i++];
+		std::cout<< "name" << first_name;
+	}
 	std::cout<<std::endl;
 }
 void contact::get_last_name()

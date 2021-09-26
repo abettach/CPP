@@ -17,12 +17,13 @@ int        ft_check_errors(std::string file_name, std::string str, std::string s
 
 void       replace(std::string file_name, std::string s1, std::string s2)
 {
-    std::ifstream file(file_name.c_str());
+    std::ifstream file(file_name.c_str());//c_string because in c++98 iftream dont take a string file name but take cont char *
 
     if (ft_check_errors(file_name, s1, s2, file.is_open()))
         return ;
     std::stringstream string;
     string << file.rdbuf();
+    std::cout<< string.str();
     std::string string_two = string.str();
     file.close(); // close the file(filename)
     std::string new_output;

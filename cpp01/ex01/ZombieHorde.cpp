@@ -2,7 +2,6 @@
 
 Zombie* zombieHorde( int N, std::string name )
 {
-    int size = sizeof (Zombie); 
     Zombie *zombie = new Zombie[N];
 
     for (int i = 0; i < N ; i++)
