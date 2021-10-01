@@ -9,7 +9,7 @@ int        ft_check_errors(std::string file_name, std::string str, std::string s
     }
     if (!file) // check the file is_open
     {
-        std::cout<< "Error : file doesnt exist !"<<std::endl;
+        std::cout<< "Error : file doesn't exist !"<< std::endl;
         return 1;
     }
     return 0;
@@ -23,7 +23,6 @@ void       replace(std::string file_name, std::string s1, std::string s2)
         return ;
     std::stringstream string;
     string << file.rdbuf();
-    std::cout<< string.str();
     std::string string_two = string.str();
     file.close(); // close the file(filename)
     std::string new_output;

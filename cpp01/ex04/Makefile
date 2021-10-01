@@ -17,6 +17,6 @@ clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) *.replace
 
 re : fclean all

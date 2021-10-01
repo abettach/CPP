@@ -17,7 +17,7 @@ class Karen
 		Karen();
 		~Karen();
 		void	(Karen::*pointer[4])(void);
-		void complain( std::string level );
+		void complain(std::string level);
 };
 
 #endif

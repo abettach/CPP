@@ -4,6 +4,8 @@
 Setting a member function pointer to point to a member function:
 pointer_name = &class_name::member_function_name;
 */
+
+
 Karen::Karen(void)
 {
 	this->pointer[0] = &Karen::debug;
@@ -47,6 +49,6 @@ void    Karen::complain(std::string level)
 
 	for (std::size_t i = 0; i < 4; i++)
 		if (level.compare(KAREN_MESSAGE[i]) == 0) 
-			(this->*pointer[i])();
+			(this->*(pointer[i]))();
 	return;
 }

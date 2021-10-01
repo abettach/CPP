@@ -52,12 +52,11 @@ void    Karen::complain(std::string level)
 		{
 			while (i < 4)
 			{
-				std::cout<< "[" <<KAREN_MESSAGE[i]<<"]"<<std::endl;
+				std::cout<< "[ " <<KAREN_MESSAGE[i]<<" ]"<<std::endl;
 				(this->*pointer[i])();
 				std::cout<< std::endl;
 				i++;
 			}
 		}
   return;
-
 }
