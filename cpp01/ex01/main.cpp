@@ -3,9 +3,17 @@
 int main()
 {
 	Zombie	*z;
-	int		nbr;
+	int nbr;
 
-	z = zombieHorde(3, "Zombie");
-	delete[] z;
+	nbr = 4;
+	if (nbr <= 0)
+	{
+		std::cout<< "Error: check your number"<< std::endl;
+	}
+	else
+	{
+		z = zombieHorde(nbr, "Zombie");
+		delete[] z;
+	}
 	return (0);
 }

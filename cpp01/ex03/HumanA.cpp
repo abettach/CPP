@@ -2,8 +2,9 @@
 #include "Weapon.hpp"
 #include <iostream>
 
-HumanA::HumanA(std::string name, Weapon& weapon) : name(name), weapon(&weapon)
+HumanA::HumanA(std::string name, Weapon& weapon) : weapon(&weapon)
 {
+    this->name = name;
     return;
 }
 

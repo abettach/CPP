@@ -37,6 +37,8 @@ void       replace(std::string file_name, std::string s1, std::string s2)
     if (position == SIZE_MAX) // if str doesnt exist any more
         for (size_t i = 0; i < string_two.length() ; i++)
             new_output.push_back(string_two[i]);
+    for (size_t i = 0; i < file_name.length(); i++)
+        file_name[i] = toupper(file_name[i]);
     std::ofstream new_file((file_name + ".replace").c_str()); // create a new file with name file_name.replace
     new_file << new_output; // copy all things in new_output to the new file
     new_file.close(); // close the file

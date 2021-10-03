@@ -13,6 +13,8 @@ int     main(int ac, char **av)
 {
     Karen karen;
 
+    if (ac != 2)
+        std::cout << "[ Probably complaining about insignificant problems ]\n";
     if (ac == 2)
     {
         for (int j = 0; av[1][j] ; j++)
@@ -21,5 +23,6 @@ int     main(int ac, char **av)
         if (message_error(av[1]))   
             karen.complain(av[1]);
     }
+
     return 0;
 }

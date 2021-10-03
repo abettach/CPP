@@ -1,21 +1,24 @@
 NAME = main
-CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CC = clang++
 RM = rm -rf
-CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.cpp \
+SRCS =	main.cpp
 
-OBJ = $(SRCS:.cpp=.o)
+OBJS = $(SRCS:.cpp=.o)
+
+%.o:%.cpp *.hpp
+	$(CC) $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	@$(RM) $(OBJ)
+	@$(RM) $(OBJS)
 
 fclean: clean
 	@$(RM) $(NAME)
 
-re : fclean all
+re: clean all
