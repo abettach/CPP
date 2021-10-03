@@ -3,7 +3,7 @@ CC = c++
 RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS =	Fixed.cpp Fixed.hpp main.cpp
+SRCS =	Fixed.cpp main.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 

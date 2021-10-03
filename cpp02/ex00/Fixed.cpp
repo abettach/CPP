@@ -1,41 +1,37 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(void) : RawBits(0)
+Fixed::Fixed() : value(0)
 {
-    std::cout<< "Default constractor called"<<std::endl;
-    return;
+    std::cout<< "Default constructor called" << std::endl;
 }
 
-Fixed::~Fixed(void)
+Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
-    return;
+    std::cout<< "Destructor called"<< std::endl;
 }
 
-Fixed::Fixed(Fixed& a)
+Fixed::Fixed(Fixed &copy)
 {
-    std::cout<< "copy constractor called"<<std::endl;
-    *this = a;
-    return;
+    std::cout<< "Copy constructor called"<< std::endl;
+    *this = copy;
 }
 
-
-Fixed& Fixed::operator=(Fixed& rhs)
+Fixed   &Fixed::operator=(Fixed &rhs)
 {
-    std::cout << "Assignation operator called" << std::endl;
+    std::cout<< "Assignation operator called"<< std::endl;
     if (this != &rhs)
-        this->RawBits = rhs.getRawBits();
-    return *this;
+        this->value = rhs.getRawBits();
+    return (*this);
 }
 
-int     Fixed::getRawBits(void)
+int     Fixed::getRawBits() const
 {
     std::cout << "getRawBits member function called" << std::endl;
-    return this->RawBits;
-}   
+    return (this->value);
+}
 
 void    Fixed::setRawBits(int const raw)
 {
     std::cout << "setRawbits member function called" << std::endl;
-    this->RawBits = raw;
+    this->value = raw;
 }
