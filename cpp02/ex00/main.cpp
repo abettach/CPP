@@ -2,11 +2,11 @@
 
 int main( void ) 
 {
-    Fixed a; //value 0
-    Fixed b( a ); // value = 0
-    Fixed c; // value 0
+    Fixed a ;
+    Fixed b( a );
+    Fixed c;
 
-    c = b; //value(c) = 0
+    c = b;
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
     std::cout << c.getRawBits() << std::endl;

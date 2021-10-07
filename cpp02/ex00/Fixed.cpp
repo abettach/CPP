@@ -16,11 +16,11 @@ Fixed::Fixed(Fixed &copy)
     *this = copy;
 }
 
-Fixed   &Fixed::operator=(Fixed &rhs)
+Fixed   &Fixed::operator=(const Fixed &other)
 {
     std::cout<< "Assignation operator called"<< std::endl;
-    if (this != &rhs)
-        this->value = rhs.getRawBits();
+    if (this != &other)
+        this->value = other.getRawBits();
     return (*this);
 }
 

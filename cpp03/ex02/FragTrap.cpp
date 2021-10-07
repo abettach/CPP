@@ -23,15 +23,15 @@ FragTrap::FragTrap(const FragTrap &other)
     *this = other;
 }
 
-FragTrap &FragTrap::operator=(const FragTrap &rhs)
+FragTrap &FragTrap::operator=(const FragTrap &other)
 {
     std::cout << "FragTrap Assignation Operator Called" << std::endl;
-    if (this != &rhs)
+    if (this != &other)
     {
-        this->Name = rhs.Name;
-        this->Hitpoints = rhs.Hitpoints;
-        this->Energy_points = rhs.Energy_points;
-        this->Attack_damage = rhs.Attack_damage;
+        this->Name = other.Name;
+        this->Hitpoints = other.Hitpoints;
+        this->Energy_points = other.Energy_points;
+        this->Attack_damage = other.Attack_damage;
     }
     return (*this);
 }

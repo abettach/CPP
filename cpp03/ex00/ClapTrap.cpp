@@ -16,15 +16,15 @@ ClapTrap::ClapTrap(const ClapTrap &other)
     *this = other;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
     std::cout << "ClapTrap Assignation operator" << std::endl;
-    if (this != &rhs)
+    if (this != &other)
     {
-        this->Name = rhs.Name;
-        this->Hitpoints = rhs.Hitpoints;
-        this->Energy_points = rhs.Energy_points;
-        this->Attack_damage = rhs.Attack_damage;
+        this->Name = other.Name;
+        this->Hitpoints = other.Hitpoints;
+        this->Energy_points = other.Energy_points;
+        this->Attack_damage = other.Attack_damage;
     }
     return *this;
 }

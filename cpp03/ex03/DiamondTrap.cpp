@@ -25,16 +25,16 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other)
     *this = other;
 }
 
-DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
 {
     std::cout << "DiamondTrap Assignation Operator called" << std::endl;
-    if (this != &rhs)
+    if (this != &other)
     {
-        this->Name = rhs.Name;
+        this->Name = other.Name;
         ClapTrap::Name = Name + "_clap_name";
-        this->Hitpoints = rhs.Hitpoints;
-        this->Energy_points = rhs.Energy_points;
-        this->Attack_damage = rhs.Attack_damage;
+        this->Hitpoints = other.Hitpoints;
+        this->Energy_points = other.Energy_points;
+        this->Attack_damage = other.Attack_damage;
     }
     return (*this);
 }
