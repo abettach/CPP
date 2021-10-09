@@ -48,8 +48,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    std::cout << "ClapTrap " << Name << " Repaired " << "amount :" << amount <<std::endl;
-
+    std::cout << "ClapTrap " << Name << " Repaired amount :" << amount <<std::endl;
 }
 
 ClapTrap::~ClapTrap()

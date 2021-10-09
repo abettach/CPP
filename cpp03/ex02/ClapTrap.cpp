@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap()
 {
-    std::cout <<"\033[32m ClapTrap Default constructor \033[0m" << std::endl;
+    std::cout <<"ClapTrap Default constructor" << std::endl;
     this->Hitpoints = 10;
     this->Energy_points = 10;
     this->Attack_damage = 0;
@@ -54,5 +54,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "\033[32mClapTrap Destructor\033[0m" << std::endl;
+    std::cout << "ClapTrap Destructor" << std::endl;
 }

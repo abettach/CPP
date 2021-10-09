@@ -3,20 +3,22 @@
 int main()
 {
 
-    // ClapTrap C_instance0;
-    // ClapTrap C_instance1("claptrap");
-    // ClapTrap C_instance2(C_instance1);
-    // C_instance2.attack("target");
-    // C_instance2.takeDamage(30);
-    // C_instance2.beRepaired(20);
+    // ClapTrap claptrap_t1;
+    // ClapTrap claptrap_t2("claptrap");
+    // ClapTrap claptrap_t3(claptrap_t2);
 
-    std::cout << "------------------------------------------" << std::endl;
+    // claptrap_t3.attack("target");
+    // claptrap_t3.takeDamage(25);
+    // claptrap_t3.beRepaired(15);
 
-    ScavTrap S_instance0;
-    ScavTrap S_instance1("scavtrap");
-    ScavTrap S_instance2(S_instance1);
-    S_instance2.attack("target");
-    S_instance2.takeDamage(50);
-    S_instance2.beRepaired(40);
-    S_instance2.guardGate();
+    //std::cout << "------------------------------------------" << std::endl;
+
+    ScavTrap scavtpar_t1;
+    ScavTrap scavtpar_t2("scavtrap");
+    ScavTrap scavtpar_t3(scavtpar_t2);
+
+    scavtpar_t3.attack("target");
+    scavtpar_t3.takeDamage(100);
+    scavtpar_t3.beRepaired(50);
+    scavtpar_t3.guardGate();
 }

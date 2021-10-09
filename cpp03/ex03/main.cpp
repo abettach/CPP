@@ -2,38 +2,45 @@
 
 int main()
 {
-    // ClapTrap C_instance0;
-    // ClapTrap C_instance1("claptrap");
-    // ClapTrap C_instance2(C_instance1);
-    // C_instance2.attack("target");
-    // C_instance2.takeDamage(30); 
-    // C_instance2.beRepaired(20);
+    // ClapTrap claptrap_t1;
+    // ClapTrap claptrap_t2("claptrap");
+    // ClapTrap claptrap_t3(claptrap_t2);
+
+    // claptrap_t3.attack("target");
+    // claptrap_t3.takeDamage(25);
+    // claptrap_t3.beRepaired(15);
+
+    //std::cout << "------------------------------------------" << std::endl;
+
+    // ScavTrap scavtpar_t1;
+    // ScavTrap scavtpar_t2("scavtrap");
+    // ScavTrap scavtpar_t3(scavtpar_t2);
+
+    // scavtpar_t3.attack("target");
+    // scavtpar_t3.takeDamage(100);
+    // scavtpar_t3.beRepaired(50);
+    // scavtpar_t3.guardGate();
 
     // std::cout << "------------------------------------------" << std::endl;
 
-    // ScavTrap S_instance0;
-    // ScavTrap S_instance1("scavtrap");
-    // ScavTrap S_instance2(S_instance1);
-    // S_instance2.guardGate();
-
-    // std::cout << "------------------------------------------" << std::endl;
+    // FragTrap t1;
+    // FragTrap t2("fragtrap");
+    // FragTrap t3(t2);
+    // t3.attack("target");
+    // t3.takeDamage(100);
+    // t3.beRepaired(50);
+    // t3.highFivesGuys();
     
-    // FragTrap instance0;
-    // FragTrap instance1("fragtrap");
-    // FragTrap instance2(instance1);
-    // instance2.highFivesGuys();
+    //std::cout << "------------------------------------------" << std::endl;
 
-    
-    std::cout << "------------------------------------------" << std::endl;
-    // DiamondTrap instance0;
-    DiamondTrap D_instance1("diamondtrap");
-    DiamondTrap diamondtrap(D_instance1);
-    diamondtrap.attack("target");
-    diamondtrap.takeDamage(50);
-    diamondtrap.beRepaired(40);
-    diamondtrap.highFivesGuys();
-    diamondtrap.guardGate();
-    diamondtrap.whoAmI();
-    // std::string target = "Scavtrap";
-    // D_instance1.attack(target);
+    DiamondTrap diamondtrap_t1;
+    DiamondTrap diamondtrap_t2("diamondtrap");
+    DiamondTrap diamondtrap_t3(diamondtrap_t1);
+
+    diamondtrap_t3.attack("target");
+    diamondtrap_t3.takeDamage(50);
+    diamondtrap_t3.beRepaired(40);
+    diamondtrap_t3.highFivesGuys();
+    diamondtrap_t3.guardGate();
+    diamondtrap_t3.whoAmI();
 }

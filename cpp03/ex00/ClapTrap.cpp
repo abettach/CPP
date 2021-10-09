@@ -1,13 +1,20 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : Hitpoints(10), Energy_points(10), Attack_damage(0)
+ClapTrap::ClapTrap()
 {
     std::cout << "ClapTrap Default constructor" << std::endl;
+    this->Hitpoints = 10;
+    this->Energy_points = 10;
+    this->Attack_damage = 0;
 }
 
-ClapTrap::ClapTrap(std::string Name) : Hitpoints(10), Energy_points(10), Attack_damage(0), Name(Name)
+ClapTrap::ClapTrap(std::string Name)
 {
     std::cout << "ClapTrap paramitrise constructor" << std::endl;
+    this->Name = Name;
+    this->Hitpoints = 10;
+    this->Energy_points = 10;
+    this->Attack_damage = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
@@ -32,20 +39,20 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 void ClapTrap::attack(std::string const & target)
 {
     std::cout << "ClapTrap " << Name
-    << " attack " << target << " ,causing "
-    << Attack_damage << " points of damage !" << std::endl;
+        << " attack " << target << ", causing "
+        << Attack_damage << " points of damage !" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    std::cout << Name << " take damage amount :" << amount << std::endl;
+    std::cout << Name << " take damage amount :" 
+        << amount << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
     std::cout << "ClapTrap " << Name
-    << " Repaired " << "amount :"
-    << amount <<std::endl;
+        << " Repaired amount :" << amount <<std::endl;
 }
 
 ClapTrap::~ClapTrap()

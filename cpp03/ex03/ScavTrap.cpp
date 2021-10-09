@@ -3,9 +3,9 @@
 ScavTrap::ScavTrap()
 {
     std::cout << "ScavTrap Default Constructor" << std::endl;
-    // this->Hitpoints = 100;
+    this->Hitpoints = 100;
     this->Energy_points = 50;
-    // this->Attack_damage = 20;
+    this->Attack_damage = 20;
 }
 
 ScavTrap::ScavTrap(std::string Name)
@@ -38,7 +38,9 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 void ScavTrap::attack(const std::string &target)
 {
-    std::cout << "ScavTrap " << Name << " attack " << target << " ,causing " << Attack_damage << " points of damage !" << std::endl;
+    std::cout << "ScavTrap " << Name 
+        << " attack " << target 
+        << " ,causing " << Attack_damage << " points of damage !" << std::endl;
 }
 
 void ScavTrap::guardGate()
