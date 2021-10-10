@@ -10,6 +10,7 @@ Dog::Dog()
 Dog::Dog(const Dog &other)
 {
     std::cout<< "Dog copy constractor" << std::endl;
+    this->dog_brain = new Brain();
     *this = other;
 }
 
@@ -17,7 +18,10 @@ Dog &Dog::operator=(const Dog &other)
 {
     std::cout << "ClapTrap Assignation operator" << std::endl;
     if (this != &other)
+    {
+        *this->dog_brain = *other.dog_brain;
         this->type = other.type;
+    }
     return *this;
 }
 

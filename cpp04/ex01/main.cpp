@@ -18,10 +18,14 @@ int main()
     // for(int i=0 ; i < nbr ; i++)
     //     delete animal[i];
     
-    // const Animal* j = new Dog();
-    // const Animal* i = new Cat();
 
     // delete j;//should not create a leak
     // delete i;
+
+    
+    Dog basic;
+    Dog tmp(basic);
+    std::cout<< " andress = " << &basic << std::endl;
+    std::cout<< " andress = " << &tmp << std::endl;
 
 }

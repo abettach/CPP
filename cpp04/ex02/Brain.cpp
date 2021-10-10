@@ -11,13 +11,14 @@ Brain::Brain(const Brain &other)
     *this = other;
 }
 
-// Brain &Brain::operator=(const Brain &other)
-// {
-//     std::cout << "Brain Assignation operator" << std::endl;
-//     if (this != &other)
-//         this->type = other.type;
-//     return *this;
-// }
+Brain &Brain::operator=(const Brain &rhs)
+{
+    std::cout<< "Brain assignation operator" << std::endl;
+	if(this != &rhs)
+	    for (size_t i = 0; i < 100; i++)
+		    this->ideas[i] = rhs.ideas[i];
+	return (*this);
+}
 
 
 Brain::~Brain()
