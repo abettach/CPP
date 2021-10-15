@@ -6,6 +6,12 @@ Dog::Dog()
     this->type = "Dog";
 }
 
+Dog::Dog(std::string type)
+{
+    std::cout<< "Dog parametrise constractor" << std::endl;
+    this->type = type;
+}
+
 Dog::Dog(const Dog &other)
 {
     std::cout<< "Dog copy constractor" << std::endl;

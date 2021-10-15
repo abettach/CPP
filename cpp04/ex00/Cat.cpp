@@ -6,6 +6,12 @@ Cat::Cat()
     this->type = "Cat";
 }
 
+Cat::Cat(std::string type)
+{
+    std::cout<< "Cat parametrise constractor" << std::endl;
+    this->type = type;
+}
+
 Cat::Cat(const Cat &other)
 {
     std::cout<< "Cat copy constractor" << std::endl;

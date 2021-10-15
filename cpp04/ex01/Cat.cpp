@@ -7,6 +7,12 @@ Cat::Cat()
     this->cat_brain = new Brain();
 }
 
+Cat::Cat(std::string type)
+{
+    std::cout<< "Cat parametrise constractor" << std::endl;
+    this->type = type;
+}
+
 Cat::Cat(const Cat &other)
 {
     std::cout<< "Cat copy constractor" << std::endl;
@@ -33,6 +39,24 @@ std::string Cat::getType() const
 void    Cat::makeSound() const
 {
     std::cout<< "Cat sound" <<std::endl;
+}
+
+void Cat::setBrain()
+{
+	cat_brain->setIdeas();
+}
+
+void Cat::setBrain(std::string idea)
+{
+	cat_brain->setIdeas(idea);
+}
+
+void Cat::getBrain()
+{
+	const std::string *ideas;
+    ideas = this->cat_brain->getIdeas();
+	for (size_t i = 0; i <= 99; i++)
+		std::cout << ideas[i] << std::endl;
 }
 
 Cat::~Cat()

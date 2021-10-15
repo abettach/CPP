@@ -34,7 +34,12 @@ void    Cure::use(ICharacter& target)
 
 AMateria *Cure::clone() const
 {
-    AMateria *m = new Cure();
+    AMateria *clone_cure = new Cure();
    //std::cout<< "Cur clone fonction" << std::endl;
-    return m;
+    return clone_cure;
+}
+
+Cure::~Cure()
+{
+    // std::cout<< "Cure destractor" << std::endl;
 }

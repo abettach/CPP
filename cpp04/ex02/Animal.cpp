@@ -6,6 +6,12 @@ Animal::Animal()
     this->type = "Animal";
 }
 
+Animal::Animal(std::string type)
+{
+    std::cout<< "Animal Parametrise constractor called"<< std::endl;
+    this->type = type;
+}
+
 Animal::Animal(const Animal &other)
 {
     std::cout<< "Animal copy constractor" << std::endl;
@@ -27,7 +33,7 @@ std::string Animal::getType() const
 
 void    Animal::makeSound() const
 {
-    std::cout<< "some wierd sound" <<std::endl;
+    std::cout<< "Animal sound" <<std::endl;
 }
 
 Animal::~Animal()

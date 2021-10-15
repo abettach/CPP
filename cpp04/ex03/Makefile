@@ -1,6 +1,6 @@
-NAME = Animal
-FLAGS = -Wall -Wextra -Werror 
-CC = clang++
+NAME = Interface
+FLAGS = #-Wall -Wextra -Werror 
+CC = c++
 RM = rm -rf
 
 SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp

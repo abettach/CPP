@@ -34,8 +34,13 @@ void    Ice::use(ICharacter& target)
 
 AMateria *Ice::clone() const
 {
-    AMateria *clone = new Ice();
+    AMateria *clone_ice = new Ice();
 
    //std::cout<< "Ice clone fonction" << std::endl;
-    return clone;
+    return clone_ice;
+}
+
+Ice::~Ice()
+{
+    // std::cout<< "Ice destractore" << std::endl;
 }

@@ -6,6 +6,13 @@ WrongAnimal::WrongAnimal()
     this->type = "WrongAnimal";
 }
 
+WrongAnimal::WrongAnimal(std::string type)
+{
+    std::cout<< "WrongAnimal parametrise constractor" << std::endl;
+    this->type = type;
+}
+
+
 WrongAnimal::WrongAnimal(const WrongAnimal &other)
 {
     std::cout<< "WrongAnimal copy constractor" << std::endl;

@@ -1,6 +1,6 @@
 NAME = Animal
 FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
-CC = clang++
+CC = c++
 RM = rm -rf
 
 SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp

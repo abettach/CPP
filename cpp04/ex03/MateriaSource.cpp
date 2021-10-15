@@ -3,7 +3,7 @@
 MateriaSource::MateriaSource()
 {
    //std::cout<< "MateriaSource default constractor" << std::endl;
-    counter = 0;
+    this->counter = 0;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other)
@@ -18,16 +18,12 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
     if (this != &other)
     {
         this->counter = other.counter;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < counter; i++)
             this->source[i] = other.source[i]->clone();
     }
     return *this;
 }
 
-MateriaSource::~MateriaSource()
-{
-   //std::cout<< "MateriaSource destractor called" << std::endl;
-}
 
 void    MateriaSource::learnMateria(AMateria* m)
 {
@@ -37,8 +33,8 @@ void    MateriaSource::learnMateria(AMateria* m)
         source[counter] = m;
         counter++;
     }
-   else
-       std::cout<< "cant learn anymore" << std::endl;
+//    else
+//        std::cout<< "cant learn anymore" << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -48,4 +44,9 @@ AMateria* MateriaSource::createMateria(std::string const & type)
         if (source[i]->getType() == type)
             return (source[i]->clone());
     return 0;
+}
+
+MateriaSource::~MateriaSource()
+{
+   //std::cout<< "MateriaSource destractor called" << std::endl;
 }

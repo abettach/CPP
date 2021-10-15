@@ -3,7 +3,7 @@
 Character::Character()
 {
    //std::cout<< "Character default constractor" << std::endl;
-    counter = 0;
+    this->counter = 0;
 }
 Character::Character(std::string Name)
 {
@@ -24,15 +24,10 @@ Character &Character::operator=(const Character &other)
     {
         this->Name = other.Name;
         this->counter = other.counter;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < this->counter ; i++)
             this->inventory[i] = other.inventory[i]->clone();
     }
     return *this;
-}
-
-Character::~Character()
-{
-   //std::cout << "Character default destarctor" << std::endl;
 }
 
 std::string const &Character::getName() const
@@ -50,13 +45,13 @@ void    Character::equip(AMateria *m)
         counter++;
     }
     else
-       std::cout<< "alread we have 4 inventory sorry"<< std::endl;
+       std::cout<< "alread we have 4 AMateria sorry"<< std::endl;
 }
 
 void    Character::unequip(int idx)
 {
    //std::cout<< "Character unequip function" << std::endl;
-    if (this->inventory[idx] && idx < counter && idx >= 0)
+    if (idx >= 0 && idx < counter)
     {
         this->inventory[idx] = NULL;
         for (int i = idx; i < counter && this->inventory[i + 1]; i++)
@@ -72,4 +67,9 @@ void    Character::use(int idx, ICharacter& target)
         this->inventory[idx]->use(target);
     else
        std::cout<< "Yohooo invalid index" << std::endl;
+}
+
+Character::~Character()
+{
+   //std::cout << "Character default destarctor" << std::endl;
 }

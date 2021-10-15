@@ -20,6 +20,25 @@ Brain &Brain::operator=(const Brain &rhs)
 	return (*this);
 }
 
+void    Brain::setIdeas()
+{
+    std::cout<< "Brain setIdeas function" << std::endl;
+	for (size_t i = 0; i < 100; i++)
+		ideas[i] = "Idea " + std::to_string(i);
+}
+
+void    Brain::setIdeas(std::string idea)
+{
+    std::cout<< "Brain parametrise setIdeas function" << std::endl;
+	for (size_t i = 0; i < 100; i++)
+		ideas[i] = idea + " " + std::to_string(i);
+}
+
+std::string const *Brain::getIdeas( void ) const
+{
+    return this->ideas;
+}
+
 Brain::~Brain()
 {
     std::cout<< "Brain destractor" << std::endl;

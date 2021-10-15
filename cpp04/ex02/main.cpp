@@ -4,24 +4,26 @@
 
 int main()
 {
-    int nbr = 10;
-    const Animal* animal[nbr];
-    
-    for (int i = 0; i < nbr ; i++)
-    {
-        if (i < (nbr / 2) - 1)
-            animal[i] = new Dog();
-        else
-            animal[i] = new Cat;
-    }
-    
-    for(int i=0 ; i < nbr ; i++)
-        delete animal[i];
-    
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+	int nbr  = 20;
+	const Animal *animal[nbr];
 
-    delete j;//should not create a leak
-    delete i;
+	for (int i = 0; i < nbr; i++)
+	{
+        if (i < nbr / 2)
+		    animal[i] = new Cat();
+        else
+		    animal[i] = new Dog();
+	}
+	for (int i = 0; i < nbr; i++)
+			delete animal[i];
+
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+
+	delete j;//should not create a leak
+	delete i;
+
+
+	return (0);
 
 }

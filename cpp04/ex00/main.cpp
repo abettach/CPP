@@ -22,9 +22,9 @@ int main()
     e->makeSound();
     f->makeSound();
 
-    delete meta;
-    delete j;
-    delete i;
-    delete e;
-    delete f;
+    // delete meta;
+    // delete j;
+    // delete i;
+    // delete e;
+    // delete f;
 }
