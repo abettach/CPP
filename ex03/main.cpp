@@ -3,7 +3,7 @@
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
-#include "ICharacter.hpp"
+#include "Character.hpp"
 
 int main()
 {
@@ -12,7 +12,6 @@ int main()
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
-
 
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
@@ -43,4 +42,4 @@ int main()
 	delete me;
 	delete src;
 	return 0;
-//lol
+}
