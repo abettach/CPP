@@ -16,7 +16,7 @@ Dog::Dog(const Dog &other)
 
 Dog &Dog::operator=(const Dog &other)
 {
-    std::cout << "ClapTrap Assignation operator" << std::endl;
+    std::cout << "Dog Assignation operator" << std::endl;
     if (this != &other)
     {
         *this->dog_brain = *other.dog_brain;

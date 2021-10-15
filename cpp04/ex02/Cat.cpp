@@ -16,7 +16,7 @@ Cat::Cat(const Cat &other)
 
 Cat &Cat::operator=(const Cat &other)
 {
-    std::cout << "ClapTrap Assignation operator" << std::endl;
+    std::cout << "Cat Assignation operator" << std::endl;
     if (this != &other)
     {
         *this->cat_brain = *other.cat_brain;

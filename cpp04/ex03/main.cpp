@@ -3,7 +3,7 @@
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
-#include "Character.hpp"
+#include "ICharacter.hpp"
 
 int main()
 {
@@ -12,6 +12,7 @@ int main()
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
+
 
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
@@ -43,3 +44,10 @@ int main()
 	delete src;
 	return 0;
 }
+//Output
+/*
+	$> clang++ -W -Wall -Werror *.cpp
+	$> ./a.out | cat -e
+	* shoots an ice bolt at bob *$
+	* heals bob's wounds *$
+*/
