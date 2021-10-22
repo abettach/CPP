@@ -2,13 +2,13 @@
 
 MateriaSource::MateriaSource()
 {
-   //std::cout<< "MateriaSource default constractor" << std::endl;
+   //std::cout<< "MateriaSource default constractor called" << std::endl;
     this->counter = 0;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other)
 {
-   //std::cout<< "MateriaSource copy constractor"<< std::endl;
+   //std::cout<< "MateriaSource copy constractor called"<< std::endl;
     *this = other;
 }
 
@@ -48,5 +48,5 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 
 MateriaSource::~MateriaSource()
 {
-   //std::cout<< "MateriaSource destractor called" << std::endl;
+   //std::cout<< "MateriaSource Destractor fonction called called" << std::endl;
 }

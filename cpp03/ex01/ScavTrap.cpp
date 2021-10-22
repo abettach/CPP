@@ -25,7 +25,7 @@ ScavTrap::ScavTrap(const ScavTrap &other)
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
-    std::cout << "ScavTrap Assignation Operator" << std::endl;
+    std::cout << "ScavTrap Assignation operator called" << std::endl;
     if (this != &other)
     {
         this->Name = other.Name;

@@ -25,7 +25,7 @@ Fixed::Fixed(const float nb)
 
 Fixed   &Fixed::operator=(const Fixed &other)
 {
-    std::cout<< "Assignation operator called"<< std::endl;
+    std::cout<< "Assignation operator called called"<< std::endl;
     if (this != &other)
         this->value = other.value;
     return (*this);

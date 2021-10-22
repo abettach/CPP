@@ -2,26 +2,26 @@
 
 WrongAnimal::WrongAnimal()
 {
-    std::cout<< "WrongAnimal default constractor" << std::endl;
+    std::cout<< "WrongAnimal default constractor called" << std::endl;
     this->type = "WrongAnimal";
 }
 
 WrongAnimal::WrongAnimal(std::string type)
 {
-    std::cout<< "WrongAnimal parametrise constractor" << std::endl;
+    std::cout<< "WrongAnimal parametrise constractor called" << std::endl;
     this->type = type;
 }
 
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other)
 {
-    std::cout<< "WrongAnimal copy constractor" << std::endl;
+    std::cout<< "WrongAnimal copy constractor called" << std::endl;
     *this = other;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other)
 {
-    std::cout << "WrongAnimal Assignation operator" << std::endl;
+    std::cout << "WrongAnimal Assignation operator called" << std::endl;
     if (this != &other)
         this->type = other.type;
     return *this;
@@ -39,5 +39,5 @@ void    WrongAnimal::makeSound() const
 
 WrongAnimal::~WrongAnimal()
 {
-    std::cout<< "WrongAnimal destractor" << std::endl;
+    std::cout<< "WrongAnimal Destractor fonction called" << std::endl;
 }

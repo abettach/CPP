@@ -2,18 +2,18 @@
 
 Character::Character()
 {
-   //std::cout<< "Character default constractor" << std::endl;
+   //std::cout<< "Character default constractor called" << std::endl;
     this->counter = 0;
 }
 Character::Character(std::string Name)
 {
-   //std::cout<< "Character default constractor" << std::endl;
+   //std::cout<< "Character default constractor called" << std::endl;
     this->Name = Name;
 }
 
 Character::Character(const Character &other)
 {
-   //std::cout<< "Character default constractor" << std::endl;
+   //std::cout<< "Character default constractor called" << std::endl;
     *this = other;
 }
 
@@ -45,7 +45,7 @@ void    Character::equip(AMateria *m)
         counter++;
     }
     else
-       std::cout<< "alread we have 4 AMateria sorry"<< std::endl;
+       std::cout<< "full inventory"<< std::endl;
 }
 
 void    Character::unequip(int idx)
@@ -66,7 +66,7 @@ void    Character::use(int idx, ICharacter& target)
     if (idx < counter && idx >= 0)
         this->inventory[idx]->use(target);
     else
-       std::cout<< "Yohooo invalid index" << std::endl;
+       std::cout<< "Invalid index" << std::endl;
 }
 
 Character::~Character()

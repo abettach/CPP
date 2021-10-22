@@ -2,27 +2,28 @@
 
 Dog::Dog()
 {
-    std::cout<< "Dog default constractor" << std::endl;
+    std::cout<< "Dog default constractor called" << std::endl;
     this->type = "Dog";
     this->dog_brain = new Brain();
 }
 
 Dog::Dog(std::string type)
 {
-    std::cout<< "Dog parametrise constractor" << std::endl;
+    std::cout<< "Dog parametrise constractor called" << std::endl;
+    this->dog_brain = new Brain();
     this->type = type;
 }
 
 Dog::Dog(const Dog &other)
 {
-    std::cout<< "Dog copy constractor" << std::endl;
+    std::cout<< "Dog copy constractor called" << std::endl;
+    this->type = other.getType();
     this->dog_brain = new Brain();
-    *this = other;
 }
 
 Dog &Dog::operator=(const Dog &other)
 {
-    std::cout << "Dog Assignation operator" << std::endl;
+    std::cout << "Dog Assignation operator called" << std::endl;
     if (this != &other)
     {
         *this->dog_brain = *other.dog_brain;
@@ -61,6 +62,6 @@ void Dog::getBrain()
 
 Dog::~Dog()
 {
-    std::cout<< "Dog destractor" << std::endl;
+    std::cout<< "Dog Destractor fonction called" << std::endl;
     delete this->dog_brain;
 }

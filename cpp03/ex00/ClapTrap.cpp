@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
-    std::cout << "ClapTrap Assignation operator" << std::endl;
+    std::cout << "ClapTrap Assignation operator called" << std::endl;
     if (this != &other)
     {
         this->Name = other.Name;

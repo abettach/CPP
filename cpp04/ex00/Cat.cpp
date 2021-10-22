@@ -2,25 +2,25 @@
 
 Cat::Cat()
 {
-    std::cout<< "Cat default constractor" << std::endl;
+    std::cout<< "Cat default constractor called" << std::endl;
     this->type = "Cat";
 }
 
 Cat::Cat(std::string type)
 {
-    std::cout<< "Cat parametrise constractor" << std::endl;
+    std::cout<< "Cat parametrise constractor called" << std::endl;
     this->type = type;
 }
 
 Cat::Cat(const Cat &other)
 {
-    std::cout<< "Cat copy constractor" << std::endl;
+    std::cout<< "Cat copy constractor called" << std::endl;
     *this = other;
 }
 
 Cat &Cat::operator=(const Cat &other)
 {
-    std::cout << "Cat Assignation operator" << std::endl;
+    std::cout << "Cat Assignation operator called" << std::endl;
     if (this != &other)
         this->type = other.type;
     return *this;
@@ -38,5 +38,5 @@ void    Cat::makeSound() const
 
 Cat::~Cat()
 {
-    std::cout<< "Cat destractor" << std::endl;
+    std::cout<< "Cat Destractor fonction called" << std::endl;
 }

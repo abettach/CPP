@@ -2,24 +2,24 @@
 
 AMateria::AMateria()
 {
-   //std::cout<< "AMateria default constractor" << std::endl;
+   //std::cout<< "AMateria default constractor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type)
 {
-   //std::cout<< "AMateria string constractor" << std::endl;
+   //std::cout<< "AMateria string constractor called" << std::endl;
     this->type = type;
 }
 
 AMateria::AMateria(const AMateria &other)
 {
-   //std::cout<< "AMateria copy constractor" << std::endl;
+   //std::cout<< "AMateria copy constractor called" << std::endl;
     *this = other;
 }
 
 AMateria &AMateria::operator=(const AMateria &other)
 {
-   //std::cout << "AMateria Assignation operator" << std::endl;
+   //std::cout << "AMateria Assignation operator called" << std::endl;
     if(this != &other)
         this->type = other.getType();
     return *this;
@@ -33,5 +33,5 @@ std::string const &AMateria::getType() const
 
 AMateria::~AMateria()
 {
-   //std::cout<< "AMateria Destractor" << std::endl;
+   //std::cout<< "AMateria Destractor fonction called" << std::endl;
 }

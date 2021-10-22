@@ -2,27 +2,28 @@
 
 Cat::Cat()
 {
-    std::cout<< "Cat default constractor" << std::endl;
+    std::cout<< "Cat default constractor called" << std::endl;
     this->type = "Cat";
     this->cat_brain = new Brain();
 }
 
 Cat::Cat(std::string type)
 {
-    std::cout<< "Cat parametrise constractor" << std::endl;
+    std::cout<< "Cat parametrise constractor called" << std::endl;
     this->type = type;
+    this->cat_brain = new Brain();
 }
 
 Cat::Cat(const Cat &other)
 {
-    std::cout<< "Cat copy constractor" << std::endl;
+    std::cout<< "Cat copy constractor called" << std::endl;
     this->cat_brain = new Brain();
     *this = other;
 }
 
 Cat &Cat::operator=(const Cat &other)
 {
-    std::cout << "Cat Assignation operator" << std::endl;
+    std::cout << "Cat Assignation operator called" << std::endl;
     if (this != &other)
     {
         *this->cat_brain = *other.cat_brain;
@@ -55,12 +56,12 @@ void Cat::getBrain()
 {
 	const std::string *ideas;
     ideas = this->cat_brain->getIdeas();
-	for (size_t i = 0; i <= 99; i++)
+	for (size_t i = 0; i < 100; i++)
 		std::cout << ideas[i] << std::endl;
 }
 
 Cat::~Cat()
 {
-    std::cout<< "Cat destractor" << std::endl;
+    std::cout<< "Cat Destractor fonction called" << std::endl;
     delete this->cat_brain;
 }

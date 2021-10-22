@@ -2,25 +2,25 @@
 
 WrongCat::WrongCat()
 {
-    std::cout<< "WrongCat default constractor" << std::endl;
+    std::cout<< "WrongCat default constractor called" << std::endl;
     this->type = "WrongCat";
 }
 
 WrongCat::WrongCat(std::string type)
 {
-    std::cout<< "WrongCat parametrise constractor" << std::endl;
+    std::cout<< "WrongCat parametrise constractor called" << std::endl;
     this->type = type;
 }
 
 WrongCat::WrongCat(const WrongCat &other)
 {
-    std::cout<< "WrongCat copy constractor" << std::endl;
+    std::cout<< "WrongCat copy constractor called" << std::endl;
     *this = other;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &other)
 {
-    std::cout << "WrongCat Assignation operator" << std::endl;
+    std::cout << "WrongCat Assignation operator called" << std::endl;
     if (this != &other)
         this->type = other.type;
     return *this;
@@ -38,5 +38,5 @@ void    WrongCat::makeSound() const
 
 WrongCat::~WrongCat()
 {
-    std::cout<< "WrongCat destractor" << std::endl;
+    std::cout<< "WrongCat Destractor fonction called" << std::endl;
 }

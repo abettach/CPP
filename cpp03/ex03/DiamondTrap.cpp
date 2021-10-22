@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other)
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
 {
-    std::cout << "DiamondTrap Assignation Operator called" << std::endl;
+    std::cout << "DiamondTrap Assignation operator called called" << std::endl;
     if (this != &other)
     {
         this->Name = other.Name;

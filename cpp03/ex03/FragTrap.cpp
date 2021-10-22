@@ -25,7 +25,7 @@ FragTrap::FragTrap(const FragTrap &other)
 
 FragTrap &FragTrap::operator=(const FragTrap &other)
 {
-    std::cout << "FragTrap Assignation Operator Called" << std::endl;
+    std::cout << "FragTrap Assignation operator called Called" << std::endl;
     if (this != &other)
     {
         this->Name = other.Name;

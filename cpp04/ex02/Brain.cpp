@@ -2,18 +2,18 @@
 
 Brain::Brain()
 {
-    std::cout<< "Brain default constractor" << std::endl;
+    std::cout<< "Brain default constractor called" << std::endl;
 }
 
 Brain::Brain(const Brain &other)
 {
-    std::cout<< "Brain copy constractor" << std::endl;
+    std::cout<< "Brain copy constractor called" << std::endl;
     *this = other;
 }
 
 Brain &Brain::operator=(const Brain &rhs)
 {
-    std::cout<< "Brain assignation operator" << std::endl;
+    std::cout<< "Brain Assignation operator called" << std::endl;
 	if(this != &rhs)
 	    for (size_t i = 0; i < 100; i++)
 		    this->ideas[i] = rhs.ideas[i];
@@ -41,5 +41,5 @@ std::string const *Brain::getIdeas( void ) const
 
 Brain::~Brain()
 {
-    std::cout<< "Brain destractor" << std::endl;
+    std::cout<< "Brain Destractor fonction called" << std::endl;
 }
