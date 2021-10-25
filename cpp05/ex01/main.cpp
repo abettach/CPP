@@ -1,33 +1,30 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int     main(void)
+int main()
 {
     try
-    {
-        Bureaucrat b("test1", 150);
-        std::cout << b <<std::endl;
-        b.increment();
-        std::cout << b <<std::endl;
-
-        Bureaucrat b2("test2", 1);
-        std::cout << b2 <<std::endl;;
-        b2.decrement();
-        std::cout << b2 <<std::endl;;
-
-        Bureaucrat b3("test3", 148);
-        std::cout << b3 <<std::endl;;
-        b3.decrement();
-        std::cout << b3 <<std::endl;;
-
-        Bureaucrat b4("test4", 1) ;
-        std::cout << b4 <<std::endl;;
-        b4.increment();
-        std::cout << b4 <<std::endl;;
+    {   
+        Bureaucrat b("test_T1", 2);
+        Form f("test_T2", 3, 6);
+        b.signForm(f);
+        std::cout << f;
     }
-
-    catch(std::exception& e)
-    { 
+    
+    catch(const Bureaucrat::GradeTooHighException& e)
+    {
         std::cerr << e.what() << '\n';
     }
-    return 0;
+    catch(const Bureaucrat::GradeTooLowException& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    catch(const Form::GradeTooHighException& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    catch(const Form::GradeTooLowException& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
