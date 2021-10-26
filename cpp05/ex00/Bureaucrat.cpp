@@ -2,70 +2,58 @@
 
 Bureaucrat::Bureaucrat()
 {
-    std::cout<< "default constractor called" << std::endl;
-    this->grade = 0;
+    // std::cout << "Bureaucrat Default constractre called!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &other)
+Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name)
 {
-    std::cout<< "dopy constractor called" << std::endl;
+    // std::cout << "Bureaucrat Parametrise constractor called!" << std::endl;
+    this->grade_range = grade;
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat const &other)
+{
+    // std::cout << "Bureaucrat Copy constractre called!" << std::endl;
     *this = other;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name (name)
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
 {
-    std::cout<< "parametrise constractor called" << std::endl;
-    this->grade = grade;
-}
-
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
-{
-    std::cout << "assigniation operator called" << std::endl;
     if (this != &other)
-        this->grade = other.grade;
+        this->grade_range = other.grade_range;
     return *this;
-}
-void    Bureaucrat::increment()
-{
-    this->grade--;
-    if (this->grade < 1)
-        throw GradeTooHighException();
-}
-
-void    Bureaucrat::decrement()
-{
-    this->grade++;
-    if (this->grade > 150)
-        throw GradeTooLowException();
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return ("Grade Too high");
+    return ("Bureaucrat Grade is too High");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return ("Grade Too high");
+    return ("Bureaucrat Grade is too Low");
 }
 
-int    Bureaucrat::getGrade()
+std::string Bureaucrat::getName() const{ return this->name; }
+int Bureaucrat::getGrade() {return this->grade_range; }
+
+void    Bureaucrat::increment()
 {
-    return (this->grade);
+    (--this->grade_range < 1) ? throw GradeTooHighException() : this->grade_range;
 }
 
-std::string    Bureaucrat::getName()
+void    Bureaucrat::decrement()
 {
-    return (this->name);
+    (++this->grade_range > 150) ? throw GradeTooLowException() : this->grade_range;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout<< "default destractor called" << std::endl;
+    // std::cout << "Bureaucrat Destractro called!" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &os, Bureaucrat &b)
+std::ostream & operator <<(std::ostream &ofs, Bureaucrat &b)
 {
-    os << b.getName() + ",  bureaucrat grade " << b.getGrade() << std::endl;
-    return os;
+    ofs << b.getName() << ", Bureaucrat grade " << b.getGrade();
+    return ofs;
 }

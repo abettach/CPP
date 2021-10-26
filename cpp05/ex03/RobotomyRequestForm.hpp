@@ -11,11 +11,8 @@ private:
 public:
     RobotomyRequestForm();
     RobotomyRequestForm(std::string);
-    RobotomyRequestForm(RobotomyRequestForm const &);
-    RobotomyRequestForm &operator=(RobotomyRequestForm const &);
     ~RobotomyRequestForm();
     void    Action() const;
-    std::string    get_target() const;
 };
 
 

@@ -1,33 +1,22 @@
 #include "Bureaucrat.hpp"
 
-int     main(void)
+int main(void)
 {
     try
     {
-        Bureaucrat b("test1", 150);
-        std::cout << b <<std::endl;
-        b.increment();
-        std::cout << b <<std::endl;
+        Bureaucrat B_T1("test_t1", 1);
+        B_T1.decrement();
 
-        Bureaucrat b2("test2", 1);
-        std::cout << b2 <<std::endl;;
-        b2.decrement();
-        std::cout << b2 <<std::endl;;
+        Bureaucrat B_T2("test_t2", 49);
+        B_T2.increment();
 
-        Bureaucrat b3("test3", 148);
-        std::cout << b3 <<std::endl;;
-        b3.decrement();
-        std::cout << b3 <<std::endl;;
+        Bureaucrat B_T3("test_t3", 150);
+        B_T3.decrement();
 
-        Bureaucrat b4("test4", 1) ;
-        std::cout << b4 <<std::endl;;
-        b4.increment();
-        std::cout << b4 <<std::endl;;
     }
-
-    catch(std::exception& e)
-    { 
-        std::cerr << e.what() << '\n';
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
     }
-    return 0;
+    
 }

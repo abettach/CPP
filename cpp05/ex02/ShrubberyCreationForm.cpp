@@ -1,26 +1,47 @@
 #include "ShrubberyCreationForm.hpp"
 
+std::string const ShrubberyCreationForm::tree_data = {
+    "          .     .  .      +     .      .          .\n\
+     .       .      .     #       .           .\n\
+        .      .         ###            .      .      .\n\
+      .      .   \"#:. .:##\"##:. .:#\"  .      .\n\
+          .      . \"####\"###\"####\"  .\n\
+       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       .\n\
+  .             \"#########\"#########\"        .        .\n\
+        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .\n\
+     .     .  \"#######\"\"##\"##\"\"#######\"                  .\n\
+                .\"##\"#####\"#####\"##\"           .      .\n\
+    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .\n\
+      .     \"#######\"##\"#####\"##\"#######\"      .     .\n\
+    .    .     \"#####\"\"#######\"\"#####\"    .      .\n\
+            .     \"      000      \"    .     .\n\
+       .         .   .   000     .        .       .\n\
+........................O000O...................................",
+};
+
 ShrubberyCreationForm::ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCrationForm Default Constractor called" << std::endl;
+    std::cout << "ShrubberyCreationForm Default Constructor Called!" << std::endl;;
+    this->_target = "";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
-        : Form("Shrubbery_Creation", 145, 137)
+	: Form("Shrubbery_Creation", 145, 137)
 {
-    std::cout << "Constructor Parametrise the ShrubberyCreationForm is Called!\n";
+    std::cout << "ShrubberyCreationForm Parametrise Constructor Called!" << std::endl;
     this->_target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other) :
-    Form("Shrubbery_creation", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &sh)
+	:Form("Shrubbery Creation", 145, 137)
 {
-    std::cout << "ShrubberyCrationForm copy Constractor called" << std::endl;
-    *this = other;
+	std::cout << "ShrubberyCreationForm Copy Constractor Called!" << std::endl;
+    *this = sh;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &sh)
 {
+	std::cout << "ShrubberyCreationForm Assigniation Operator Called!" << std::endl;
     if (this != &sh)
         this->_target = sh._target;
     return (*this);
@@ -33,22 +54,11 @@ void    ShrubberyCreationForm::Action() const
         ofs.open(str_file, std::ios::out);
         if (ofs.is_open())
         {
-            std::cout <<"          &&& &&  & &&"        <<std::endl;
-            std::cout <<"      && &\/&\|& ()|/ @, &&"   <<std::endl;
-            std::cout <<"      &\/(/&/&||/& /_/)_&/_&"  <<std::endl;
-            std::cout <<"   &() &\/&|()|/&\/ \'%\" & ()"<<std::endl;
-            std::cout <<"  &_\_&&_\ |& |&&/&__%_/_& &&" <<std::endl;
-            std::cout <<"&&   && & &| &| /& & % ()& /&&" <<std::endl;
-            std::cout <<" ()&_---()&\&\|&&-&&--%---()~" <<std::endl;
-            std::cout <<"     &&     \|||"              <<std::endl;
-            std::cout <<"             |||"              <<std::endl;
-            std::cout <<"             |||"              <<std::endl;
-            std::cout <<"             |||"              <<std::endl;
-            std::cout <<"       , -=-~  .-^- _ "        <<std::endl;
-            ofs.close();
-        }
+    		ofs << ShrubberyCreationForm::tree_data;
+      		ofs.close();
+    	}
         else
-            std::cout << "\e[1;31mCannot Open File <" + str_file + ">, Try again!\e[0m" << std::endl;
+            std::cout << "Cannot Open File <" + str_file + ">, Try again!" << std::endl;
 }
 
 std::string ShrubberyCreationForm::get_target() const
@@ -58,5 +68,5 @@ std::string ShrubberyCreationForm::get_target() const
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm Destractor Called" << std::endl;
+	std::cout << "ShrubberyCreationForm Destractor Called!" << std::endl;
 }

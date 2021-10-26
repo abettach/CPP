@@ -5,36 +5,35 @@
 
 class Form;
 
-class Bureaucrat{
-    private:
-        std::string const _name_;
-        int grade;
-    public:
-
-        class GradeTooHighException : public std::exception
-        {
-            public:
-                const char *what() const throw();
-        };
-        class GradeTooLowException : public std::exception
-        {
-            public:
-                const char *what() const throw();
-        };
-        Bureaucrat();
-        Bureaucrat(std::string);
-        Bureaucrat(Bureaucrat const &);
-        Bureaucrat(std::string, int);
-        Bureaucrat& operator=(Bureaucrat const &);
-        ~Bureaucrat();
-        std::string getName() const;
-        int getGrade() const;
-        void  increment();
-        void  decrement();
-        void    signForm(Form &);
+class Bureaucrat
+{
+private:
+    std::string const name;
+    int grade_range;
+public:
+    Bureaucrat(/* args */);
+    Bureaucrat(Bureaucrat const &other);
+    Bureaucrat(std::string const name, int grade);
+    Bureaucrat &operator=(Bureaucrat const &other);
+    ~Bureaucrat();
+    std::string    getName() const;
+    int    getGrade() const;
+    void    increment();
+    void    decrement();
+    void    signForm(Form &f);
+    void    executeForm(Form const &);
+    class GradeTooHighException : public std::exception
+    {
+        public :
+            const char *what() const throw();
+    };
+    class GradeTooLowException : public std::exception
+    {
+        public :
+            const char *what() const throw(); 
+    };
 };
 
-std::ostream & operator <<(std::ostream &, Bureaucrat &);
-
+std::ostream & operator <<(std::ostream &ofs, Bureaucrat &b);
 
 #endif

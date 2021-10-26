@@ -2,24 +2,26 @@
 
 RobotomyRequestForm::RobotomyRequestForm()
 {
-    std::cout << "Constructor Default the RobotomyRequestForm is Called!\n";
+    std::cout << "RobotomyRequestForm Default Constructor Called!" << std::endl;
     this->_target = "";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("Robotomy Request", 72, 45)
 {
-    std::cout << "Constructor Parametrise the RobotomyRequestForm is Called!\n";
+    std::cout << "RobotomyRequestForm Parametrise Constructor Called!" << std::endl;
     this->_target = target;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &rb)
 : Form("Robotomy Request", 72, 45)
 {
+    std::cout << "RobotomyRequestForm Copy Constractor Called!" << std::endl;
     *this = rb;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &rb)
 {
+    std::cout << "RobotomyRequestForm Assigniation Operator Called" << std::endl;
     if (this != &rb)
         this->_target = rb._target;
     return (*this);
@@ -42,5 +44,5 @@ void    RobotomyRequestForm::Action() const
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-
+    std::cout << "RobotomyRequestForm Destractor Called" << std::endl;
 }
