@@ -1,0 +1,86 @@
+#include "Form.hpp"
+
+Form::Form() : name("None"), sign_indicater(false), grade_sign(0), grade_execute(0)
+{
+    // std::cout<< "Form Default constractor called!" << std::endl;
+}
+
+Form::Form(std::string const name, int const grade_sing, int const grade_execute)
+    : name(name), grade_sign(grade_sing), grade_execute(grade_execute)
+{
+    // std::cout << "For Parametrise Constractor Called!" << std::endl;
+    if (this->grade_sign < 1 || this->grade_execute < 1)
+        throw GradeTooHighException();
+    else if (this->grade_sign > 150 || this->grade_execute > 150)
+        throw GradeTooLowException();
+    else
+        this->sign_indicater = false;
+}
+
+Form::Form(Form const &other)
+    :sign_indicater(other.sign_indicater), grade_sign(other.grade_sign), grade_execute(other.grade_execute)
+{
+    // std::cout << "For copy constractor called!" << std::endl;
+    *this = other;
+}
+
+Form &Form::operator=(Form const &other)
+{
+    // std::cout << "Form Assiginiation operator called!" << std::endl;
+    if (this != &other)
+        this->sign_indicater = other.sign_indicater;
+    return *this;
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return ("Form Grade Too High");
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return ("Form Grade Too Low");
+}
+
+std::string Form::getName() const
+{
+    return this->name;
+}
+
+int     Form::get_grade_sign() const
+{
+    return this->grade_sign;
+}
+
+int     Form::get_grade_execute() const
+{
+    return this->grade_execute;
+}
+
+bool    Form::get_signed()
+{
+    return this->sign_indicater;
+}
+void    Form::beSigned(Bureaucrat &b)
+{
+    if (b.getGrade() <= this->grade_sign)
+        this->sign_indicater = true;
+    else
+        throw GradeTooLowException();
+}
+
+Form::~Form()
+{
+    // std::cout << "Form destractor called!" << std::endl;
+}
+
+std::ostream & operator <<(std::ostream &ofs, Form &f)
+{
+    ofs << "Form :" << std::endl \
+    << f.getName() << " Form required " \
+    << f.get_grade_sign() << " grade to sign it, and " \
+    << f.get_grade_execute() << " grade to excure it, and status of the Form "
+    << ((f.get_signed()) ? "Is Signed!" : "Is Not Signed!") << std::endl;
+
+    return ofs;
+}
