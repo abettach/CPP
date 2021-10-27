@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-std::string const ShrubberyCreationForm::tree_data = {
+std::string const ShrubberyCreationForm::tree_data =
     "          .     .  .      +     .      .          .\n\
      .       .      .     #       .           .\n\
         .      .         ###            .      .      .\n\
@@ -16,41 +16,33 @@ std::string const ShrubberyCreationForm::tree_data = {
     .    .     \"#####\"\"#######\"\"#####\"    .      .\n\
             .     \"      000      \"    .     .\n\
        .         .   .   000     .        .       .\n\
-........................O000O...................................",
-};
+........................O000O...................................";
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-{
-    std::cout << "ShrubberyCreationForm Default Constructor Called!" << std::endl;;
-    this->_target = "";
-}
+ShrubberyCreationForm::ShrubberyCreationForm(){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
-	: Form("Shrubbery_Creation", 145, 137)
+	: Form("Shrubbery Creation", 145, 137)
 {
-    std::cout << "ShrubberyCreationForm Parametrise Constructor Called!" << std::endl;
-    this->_target = target;
+    this->target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &sh)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other)
 	:Form("Shrubbery Creation", 145, 137)
 {
-	std::cout << "ShrubberyCreationForm Copy Constractor Called!" << std::endl;
-    *this = sh;
+    *this = other;
 }
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &sh)
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other)
 {
-	std::cout << "ShrubberyCreationForm Assigniation Operator Called!" << std::endl;
-    if (this != &sh)
-        this->_target = sh._target;
+    if (this != &other)
+        this->target = other.target;
     return (*this);
 }
 
 void    ShrubberyCreationForm::Action() const
 {
         std::ofstream ofs;
-        std::string str_file = this->_target + "_shrubbery";
+        std::string str_file = this->target + "_shrubbery";
         ofs.open(str_file, std::ios::out);
         if (ofs.is_open())
         {
@@ -61,12 +53,9 @@ void    ShrubberyCreationForm::Action() const
             std::cout << "Cannot Open File <" + str_file + ">, Try again!" << std::endl;
 }
 
-std::string ShrubberyCreationForm::get_target() const
+std::string ShrubberyCreationForm::gettarget() const
 {
-    return this->_target;
+    return this->target;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-	std::cout << "ShrubberyCreationForm Destractor Called!" << std::endl;
-}
+ShrubberyCreationForm::~ShrubberyCreationForm(){}

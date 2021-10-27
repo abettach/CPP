@@ -8,14 +8,14 @@
 
 class Intern
 {
-public:
-    Intern();
-    Intern(Intern const &);
-    Intern &operator=(Intern const &);
-    Form *makeForm(std::string, std::string);
-    ~Intern();
+    public:
+        Intern();
+        Intern(Intern const &);
+        Intern &operator=(Intern const &);
+        Form *makeForm(std::string, std::string);
+        ~Intern();
 };
 
-typedef Form *  (*ptr_fun)(std::string);
+typedef Form * (*ptr_fun)(std::string);
 
 #endif

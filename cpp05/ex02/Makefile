@@ -1,6 +1,6 @@
 NAME = Form
-FLAGS = #-Wall -Wextra -Werror -std=c++98
-CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CC = clang++
 RM = rm -rf
 
 SRCS = main.cpp \

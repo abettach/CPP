@@ -1,13 +1,9 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
-{
-    // std::cout << "Bureaucrat Default constractre called!" << std::endl;
-}
+Bureaucrat::Bureaucrat(){}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name)
 {
-    // std::cout << "Bureaucrat Parametrise constractor called!" << std::endl;
     if (grade < 1)
         throw GradeTooHighException();
     else if (grade > 150)
@@ -17,7 +13,6 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : name(name)
 
 Bureaucrat::Bureaucrat(Bureaucrat const &other)
 {
-    // std::cout << "Bureaucrat Copy constractre called!" << std::endl;
     *this = other;
 }
 
@@ -38,8 +33,15 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return ("Bureaucrat Grade is too Low");
 }
 
-std::string Bureaucrat::getName() const{ return this->name; }
-int Bureaucrat::getGrade() const{return this->grade_range; }
+std::string Bureaucrat::getName() const
+{
+    return this->name;
+
+}
+int Bureaucrat::getGrade() const
+{
+    return this->grade_range;
+}
 
 void    Bureaucrat::increment()
 {
@@ -49,11 +51,6 @@ void    Bureaucrat::increment()
 void    Bureaucrat::decrement()
 {
     (++this->grade_range > 150) ? throw GradeTooLowException() : this->grade_range;
-}
-
-Bureaucrat::~Bureaucrat()
-{
-    // std::cout << "Bureaucrat Destractro called!" << std::endl;
 }
 
 void    Bureaucrat::signForm(Form &f)
@@ -91,3 +88,5 @@ std::ostream & operator <<(std::ostream &ofs, Bureaucrat &b)
     ofs << b.getName() << ", Bureaucrat grade " << b.getGrade();
     return ofs;
 }
+
+Bureaucrat::~Bureaucrat(){}

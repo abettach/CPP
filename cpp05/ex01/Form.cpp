@@ -1,14 +1,10 @@
 #include "Form.hpp"
 
-Form::Form() : name("None"), sign_indicater(false), grade_sign(0), grade_execute(0)
-{
-    // std::cout<< "Form Default constractor called!" << std::endl;
-}
+Form::Form() : name("None"), sign_indicater(false), grade_sign(0), grade_execute(0){}
 
 Form::Form(std::string const name, int const grade_sing, int const grade_execute)
     : name(name), grade_sign(grade_sing), grade_execute(grade_execute)
 {
-    // std::cout << "For Parametrise Constractor Called!" << std::endl;
     if (this->grade_sign < 1 || this->grade_execute < 1)
         throw GradeTooHighException();
     else if (this->grade_sign > 150 || this->grade_execute > 150)
@@ -20,13 +16,11 @@ Form::Form(std::string const name, int const grade_sing, int const grade_execute
 Form::Form(Form const &other)
     :sign_indicater(other.sign_indicater), grade_sign(other.grade_sign), grade_execute(other.grade_execute)
 {
-    // std::cout << "For copy constractor called!" << std::endl;
     *this = other;
 }
 
 Form &Form::operator=(Form const &other)
 {
-    // std::cout << "Form Assiginiation operator called!" << std::endl;
     if (this != &other)
         this->sign_indicater = other.sign_indicater;
     return *this;
@@ -69,11 +63,6 @@ void    Form::beSigned(Bureaucrat &b)
         throw GradeTooLowException();
 }
 
-Form::~Form()
-{
-    // std::cout << "Form destractor called!" << std::endl;
-}
-
 std::ostream & operator <<(std::ostream &ofs, Form &f)
 {
     ofs << "Form :" << std::endl \
@@ -84,3 +73,5 @@ std::ostream & operator <<(std::ostream &ofs, Form &f)
 
     return ofs;
 }
+
+Form::~Form(){}

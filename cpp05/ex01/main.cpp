@@ -18,8 +18,6 @@ int main(void)
         Form F_T3("F_T3", 1, 5);
         B_T3.signForm(F_T3);
         std::cout << F_T3;
-
-
     }
     catch(const std::exception& e)
     {

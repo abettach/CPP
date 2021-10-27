@@ -6,13 +6,17 @@
 
 class ShrubberyCreationForm : public Form
 {
-private:
-    std::string _target;
-public:
-    ShrubberyCreationForm();
-    ShrubberyCreationForm(std::string);
-    ~ShrubberyCreationForm();
-    void    Action() const;
+    private:
+    	static std::string const tree_data;
+        std::string target;
+    public:
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(std::string);
+        ShrubberyCreationForm(ShrubberyCreationForm const &);
+        ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
+        ~ShrubberyCreationForm();
+        std::string    gettarget() const;
+        void    Action() const;
 };
 
 #endif

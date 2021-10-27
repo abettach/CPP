@@ -1,6 +1,6 @@
-NAME = Form
-FLAGS = #-Wall -Wextra -Werror -std=c++98
-CC = c++
+NAME = Intern
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CC = clang++
 RM = rm -rf
 
 SRCS = main.cpp \
@@ -9,7 +9,7 @@ SRCS = main.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
 		PresidentialPardonForm.cpp \
-		Intern.cpp
+		Intern.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

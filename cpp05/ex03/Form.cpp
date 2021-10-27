@@ -1,83 +1,92 @@
 #include "Form.hpp"
 
-Form::Form() : _name("default_name"), _grade_sign(0), _grade_execute(0), _issigned(false)
-{
-    std::cout << "Constructor Default The Form is Called!" << std::endl;
-}
+Form::Form() : name("None"), sign_indicater(false), grade_sign(0), grade_execute(0){}
 
-Form::Form(std::string const name, int const grade_sign, int const grade_exec) 
-        : _name(name), _grade_sign(grade_sign), _grade_execute(grade_exec)
+Form::Form(std::string const name, int const grade_sing, int const grade_execute)
+    : name(name), grade_sign(grade_sing), grade_execute(grade_execute)
 {
-    std::cout << "Constructor Parametrise The Form is Called!" << std::endl;
-    if (this->_grade_sign < 1 || this->_grade_execute < 1)
+    if (this->grade_sign < 1 || this->grade_execute < 1)
         throw GradeTooHighException();
-    else if (this->_grade_sign > 150 || this->_grade_execute > 150)
+    else if (this->grade_sign > 150 || this->grade_execute > 150)
         throw GradeTooLowException();
     else
-        this->_issigned = false;
+        this->sign_indicater = false;
 }
 
-std::string Form::get_name() const
+Form::Form(Form const &other)
+    :sign_indicater(other.sign_indicater), grade_sign(other.grade_sign), grade_execute(other.grade_execute)
 {
-    return ("\e[1;32m" + this->_name + "\e[0m");
+    *this = other;
 }
 
-int Form::get_gradesign() const
+Form &Form::operator=(Form const &other)
 {
-    return (this->_grade_sign);
-}
-int Form::get_grade_execute() const
-{
-    return (this->_grade_execute);
-}
-bool    Form::get_signed() const
-{
-    return (this->_issigned);
+    if (this != &other)
+        this->sign_indicater = other.sign_indicater;
+    return *this;
 }
 
-void    Form::beSigned(Bureaucrat &b)
+const char *Form::GradeTooHighException::what() const throw()
 {
-    if (b.getGrade() <= this->_grade_sign)
-        this->_issigned = true;
-    else
-        throw GradeTooLowException();
+    return ("Form Grade Too High");
 }
 
-const char * Form::GradeTooHighException::what() const throw()
+const char *Form::GradeTooLowException::what() const throw()
 {
-    return ("\e[1;31mThe grade is too hight!\e[0m");
-}
-
-const char * Form::GradeTooLowException::what() const throw()
-{
-    return ("\e[1;31mThe grade is too low!\e[0m");
+    return ("Form Grade Too Low");
 }
 
 const char * Form::FormIsNotSigned::what() const throw()
 {
-    return ("\e[1;31mThe Form Is Not Signed!\e[0m");
+    return ("The Form Is Not Signed!");
 }
 
-Form::~Form()
+std::string Form::getName() const
 {
+    return this->name;
 }
 
-void    Form::execute(Bureaucrat const & executor) const
+int     Form::get_grade_sign() const
+{
+    return this->grade_sign;
+}
+
+int     Form::get_grade_execute() const
+{
+    return this->grade_execute;
+}
+
+bool    Form::get_signed() const
+{
+    return this->sign_indicater;
+}
+void    Form::beSigned(Bureaucrat &b)
+{
+    if (b.getGrade() <= this->grade_sign)
+        this->sign_indicater = true;
+    else
+        throw GradeTooLowException();
+}
+
+void    Form::execute(Bureaucrat const & exec) const
 {
     if (get_signed() == false)
         throw FormIsNotSigned();
-    else if (executor.getGrade() > this->_grade_execute)
+    else if (exec.getGrade() > this->grade_execute)
         throw GradeTooLowException();
     else
         Action();
 }
 
-std::ostream &operator<<(std::ostream &o, Form &f)
+std::ostream & operator <<(std::ostream &ofs, Form &f)
 {
-    o << "\e[1;37mState of the form : \e[0m\n" << f.get_name() + " Form required "
-        + "\e[1;32m" << f.get_gradesign() << "\e[0m" << " grade to sign it, and "
-        << "\e[1;32m" << f.get_grade_execute() << "\e[0m"
-        << " grade to execute it, and Status of the Form "
-        << ((f.get_signed()) ? "\e[1;32mIs Signed!\e[0m" : "\e[1;32mIs Not Signed!\e[0m") << std::endl;
-    return (o);
+    ofs << "Form :" << std::endl \
+    << f.getName() << " Form required " \
+    << f.get_grade_sign() << " grade to sign it, and " \
+    << f.get_grade_execute() << " grade to excure it, and status of the Form "
+    << ((f.get_signed()) ? "Is Signed!" : "Is Not Signed!") << std::endl;
+
+    return ofs;
 }
+
+Form::~Form(){}

@@ -1,56 +1,47 @@
 #include "Intern.hpp"
 
-Intern::Intern()
-{
+Intern::Intern(){}
 
+Intern::Intern(Intern const &other)
+{
+    *this = other;
 }
 
-Form *get_shc_frm(std::string target)
+Intern &Intern::operator=(Intern const &other)
+{
+    (void)other;
+    return *this;
+}
+
+Form *get_ShrubberyCreationForm(std::string target)
 {
     return (new ShrubberyCreationForm(target));
 }
 
-Form *get_rbr_frm(std::string target)
+Form *get_RobotomyRequestForm(std::string target)
 {
     return (new RobotomyRequestForm(target));
 }
 
-Form *get_pp_frm(std::string target)
+Form *get_PresidentialPardonForm(std::string target)
 {
     return (new PresidentialPardonForm(target));
 }
 
-Intern::Intern(Intern const &i)
+Form *Intern::makeForm(std::string Forme_name, std::string Forme_target)
 {
-    *this = i;
-}
-
-Intern &Intern::operator=(Intern const &i)
-{
-    (void)i;
-    return *this;
-}
-
-Form *Intern::makeForm(std::string name, std::string target)
-{
-    int i = -1;
-    std::string str_name[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-    ptr_fun frm_ptr[] = {get_shc_frm, get_rbr_frm, get_pp_frm};
+    std::string Check_name[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+    ptr_fun frm_ptr[3] = {get_ShrubberyCreationForm, get_RobotomyRequestForm, get_PresidentialPardonForm};
     Form *f;
-    while (++i < 3)
-    {
-        if (str_name[i] == name)
+    for (int i = 0; i < 3 ; i++)
+        if (Check_name[i] == Forme_name)
         {
-            f = frm_ptr[i](target);
-            std::cout << "Intern creates " + f->get_name() << std::endl;
+            f = frm_ptr[i](Forme_target);
+            std::cout << "Intern creates " + f->getName() << std::endl;
             return (f);
         }
-    }
     std::cout << "The form is not known" << std::endl;
     return (NULL);
 }
 
-Intern::~Intern()
-{
-
-}
+Intern::~Intern(){}

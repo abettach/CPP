@@ -1,56 +1,61 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-{
-    std::cout << "Constructor Default the ShrubberyCreationForm is Called!\n";
-    this->_target = "";
-}
+std::string const ShrubberyCreationForm::tree_data =
+    "          .     .  .      +     .      .          .\n\
+     .       .      .     #       .           .\n\
+        .      .         ###            .      .      .\n\
+      .      .   \"#:. .:##\"##:. .:#\"  .      .\n\
+          .      . \"####\"###\"####\"  .\n\
+       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       .\n\
+  .             \"#########\"#########\"        .        .\n\
+        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .\n\
+     .     .  \"#######\"\"##\"##\"\"#######\"                  .\n\
+                .\"##\"#####\"#####\"##\"           .      .\n\
+    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .\n\
+      .     \"#######\"##\"#####\"##\"#######\"      .     .\n\
+    .    .     \"#####\"\"#######\"\"#####\"    .      .\n\
+            .     \"      000      \"    .     .\n\
+       .         .   .   000     .        .       .\n\
+........................O000O...................................";
+
+ShrubberyCreationForm::ShrubberyCreationForm(){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
-: Form("Shrubbery Creation", 145, 137)
+	: Form("Shrubbery Creation", 145, 137)
 {
-    std::cout << "Constructor Parametrise the ShrubberyCreationForm is Called!\n";
-    this->_target = target;
+    this->target = target;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other)
+	:Form("Shrubbery Creation", 145, 137)
+{
+    *this = other;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other)
+{
+    if (this != &other)
+        this->target = other.target;
+    return (*this);
 }
 
 void    ShrubberyCreationForm::Action() const
 {
         std::ofstream ofs;
-        std::string str_file = this->_target + "_shrubbery";
-        ofs.open(str_file.c_str(), std::ios::out);
+        std::string str_file = this->target + "_shrubbery";
+        ofs.open(str_file, std::ios::out);
         if (ofs.is_open())
         {
-            ofs << "                                                    ___" << std::endl;
-            ofs << "                                    _,-'""   """"`--." << std::endl;
-            ofs << "                                ,-'          __,,-- '\'" << std::endl;
-            ofs << "                            ,'    __,--""""dF      )" << std::endl;
-            ofs << "                           /   .-""Hb_,--""dF     '/'" << std::endl;
-            ofs << "                          ,'       _Hb ___dF""-._,-'" << std::endl;
-            ofs << "                        ,'      _,-""""   ""--..__" << std::endl;
-            ofs << "                        (     ,-'                  `." << std::endl;
-            ofs << "                        `._,'     _   _             ;" << std::endl;
-            ofs << "                        ,'     ,' `-'Hb-.___..._,-'" << std::endl;
-            ofs << "                       '\'    ,'""Hb.-'HH`-.dHF""" << std::endl;
-            ofs << "                            `--' ""Hb  HH  dF""" << std::endl;
-            ofs << "                                  ""Hb HH dF" << std::endl;
-            ofs << "                                   ""HbHHdF" << std::endl;
-            ofs << "                                    |HHHF" << std::endl;
-            ofs << "                                    |HHH|" << std::endl;
-            ofs << "                                    |HHH|" << std ::endl;
-            ofs << "                                    |HHH|" << std::endl;
-            ofs << "                                    |HHH|" << std::endl;
-            ofs << "                                    dHHHb" << std::endl;
-            ofs << "                                  .dFd|bHb.               o" << std::endl;
-            ofs << "                        o       .dHFdH|HbTHb.          o /" << std::endl;
-            ofs << "                '\'  Y  | '\'__,dHHFdHH|HHhoHHb.__Krogg  Y" << std::endl;
-            ofs << "                ##########################################" << std::endl;
-            ofs.close();
-        }
+    		ofs << ShrubberyCreationForm::tree_data;
+      		ofs.close();
+    	}
         else
-            std::cout << "\e[1;31mCannot Open File <" + str_file + ">, Try again!\e[0m" << std::endl;
+            std::cout << "Cannot Open File <" + str_file + ">, Try again!" << std::endl;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+std::string ShrubberyCreationForm::gettarget() const
 {
-
+    return this->target;
 }
+
+ShrubberyCreationForm::~ShrubberyCreationForm(){}
