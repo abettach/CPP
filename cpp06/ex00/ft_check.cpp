@@ -28,8 +28,12 @@ bool    conversion::ischar(std::string str)
 {
     for (size_t i = 0; i < str.length(); i++)
     {
-        if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+        if ((str[i] < '0' || str[i] > '9') && str[i] != '.')
+        {
+            if (str[i] == 'f' && i == str.length() - 1 && str.length() > 2)
+                continue;
             return true;
+        }
     }
     return false;
 }

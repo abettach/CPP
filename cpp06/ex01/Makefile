@@ -1,6 +1,6 @@
 NAME = conversion
 FLAGS = -Wall -Wextra -Werror -std=c++98
-CC = c++
+CC = clang++
 RM = rm -rf
 
 SRCS = main.cpp Serialization.cpp

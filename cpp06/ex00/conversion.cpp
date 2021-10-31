@@ -1,6 +1,8 @@
 #include "conversion.hpp"
+#include <string>
 
-conversion::conversion(/* args */){
+conversion::conversion(/* args */)
+{
     _point = false;
 }
 
@@ -17,9 +19,11 @@ bool     conversion::toInt(std::string str)
         return true;
     }
     if (ischar(str))
+    {
         this->_int_num = str[0];
+    }
     else
-        this->_int_num = std::stoi(str);
+        this->_int_num = atoi(str.c_str());
     return (true);
 }
 
@@ -35,7 +39,7 @@ bool     conversion::toFloat(std::string str)
     if (ischar(str))
         this->_float_num = this->_int_num;
     else
-        this->_float_num = std::stof(str);
+        this->_float_num = atof(str.c_str());
     return (true);
 }
 
@@ -51,7 +55,7 @@ bool     conversion::toDouble(std::string str)
     if (ischar(str))
         this->_double_num = this->_float_num;
     else
-        this->_double_num = std::stod(str);
+        this->_double_num = atof(str.c_str());
     return (true);
 }
 
@@ -93,6 +97,10 @@ void    conversion::ft_print(std::string str)
 
     if (isdigit(str))
     {
+        if (str == ".f")
+            str = "0.0f";
+        else if (str[0] == '.' && str[1])
+            str = "0" + str;
         while (str[i] != '.' && str[i])
             i++;
         if (str[i] == '.')

@@ -1,6 +1,6 @@
 NAME = conversion
-FLAGS = -Wall -Wextra -Werror -std=c++98
-CC = c++
+FLAGS = #-Wall -Wextra -Werror -std=c++98
+CC = clang++
 RM = rm -rf
 
 SRCS = main.cpp conversion.cpp ft_check.cpp ft_print.cpp

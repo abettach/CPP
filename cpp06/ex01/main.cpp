@@ -9,6 +9,7 @@ int main()
     ptr_T1->y = 'Z';
     ptr_T1->str = "Hello";
     
+    std::cout << "~~~~~~~~~~~~~~~Serialize~~~~~~~~~~~~~~~~~~~~~~~~" <<std::endl;
     std::cout << "x :" << ptr_T1->x <<std::endl;
     std::cout << "y :" << ptr_T1->y <<std::endl;
     std::cout << "str :" << ptr_T1->str <<std::endl;
@@ -16,6 +17,7 @@ int main()
 
 
     Data *ptr_T2;
+    std::cout << "~~~~~~~~~~~~~~~DeSerialize~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
     ptr_T2 = deserialize(raw);
     std::cout << "x :" << ptr_T2->x <<std::endl;
     std::cout << "y :" << ptr_T2->y <<std::endl;
