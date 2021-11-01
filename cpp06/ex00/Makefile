@@ -1,9 +1,9 @@
 NAME = conversion
 FLAGS = #-Wall -Wextra -Werror -std=c++98
-CC = clang++
+CC = c++
 RM = rm -rf
 
-SRCS = main.cpp conversion.cpp ft_check.cpp ft_print.cpp
+SRCS = main.cpp conversion.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
