@@ -8,17 +8,18 @@ int main(int ac, char **av)
 		std::cerr << "[ ERROR ] Check Args ! " << std::endl;
 		return 0;
 	}
-	Type nb;
+	conv nb;
 	nb.setValue(av[1]);
 	str = nb.getValue();
 	nb.parsing(str);
-	if (nb.GetType() != "Invalid Type")
+
+	if (nb.GetType() != ERROR)
 	{
 		nb.SetTypes();
 		nb.printTypes();
 		return (0);
 	}
 	else
-		std::cout << "Invalid Type" << std::endl;
+		std::cout << "ERROR: Invalide Arguments " << std::endl;
 	return (1);
 }

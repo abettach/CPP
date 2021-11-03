@@ -23,7 +23,7 @@ Form *get_RobotomyRequestForm(std::string target)
     return (new RobotomyRequestForm(target));
 }
 
-Form *get_PresidentialPardonForm(std::string target)
+Form *getprecisionidentialPardonForm(std::string target)
 {
     return (new PresidentialPardonForm(target));
 }
@@ -31,7 +31,7 @@ Form *get_PresidentialPardonForm(std::string target)
 Form *Intern::makeForm(std::string Forme_name, std::string Forme_target)
 {
     std::string Check_name[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-    ptr_fun frm_ptr[3] = {get_ShrubberyCreationForm, get_RobotomyRequestForm, get_PresidentialPardonForm};
+    ptr_fun frm_ptr[3] = {get_ShrubberyCreationForm, get_RobotomyRequestForm, getprecisionidentialPardonForm};
     Form *f;
     for (int i = 0; i < 3 ; i++)
         if (Check_name[i] == Forme_name)
