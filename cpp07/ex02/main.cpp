@@ -1,55 +1,60 @@
+#include <iostream>
 #include "Array.hpp"
-#define SIZE 5
 
-int main()
+#define MAX_VAL 5
+int main(int, char**)
 {
-	Array<int> arr(SIZE);
-	int *cpy = new int[SIZE];
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-	srand(time(NULL));
-	for (int i = 0; i < SIZE; i++)
-	{
-		const int value = rand();
-		arr[i] = value;
-		cpy[i] = value;
-	}
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-	for (int i = 0; i < SIZE; i++)
-	{
-		if (cpy[i] != arr[i])
-		{
-			std::cerr << "didn't save the same value!!" << std::endl;
-			return 1;
-		}
-	}
-
-	try
-	{
-		arr[-1] = rand();
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << "Original : {";
-	for (int i = 0; i   < SIZE; i++)
-	{
-		arr[i] = rand();
-		std::cout << arr[i];
-		if (i < SIZE - 1)
-			std::cout << ", ";
-	}
-	std::cout << "}" << std::endl;
-	Array<int> arr_cpy(arr);
-	std::cout << "Copy     : {";
-	for (int i = 0; i < SIZE; i++)
-	{
-		std::cout << arr_cpy[i];
-		if (i < SIZE - 1)
-			std::cout << ", ";
-	}
-	std::cout << "}" << std::endl;
-	delete[] cpy;
-	return 0;
+	std::cout << "numbers        =";
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+		std::cout << "|" << numbers[i] << "|";
+    }
+	std::cout << std::endl << "numbers_mirror =";
+	Array<int>numbers_mirror(numbers);
+	for (int i =0; i < MAX_VAL; i++)
+		std::cout << "|" << numbers_mirror[i] << "|";
+	std::cout<<std::endl;
+    delete [] mirror;//
+    return 0;
 }

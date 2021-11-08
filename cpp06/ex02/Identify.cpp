@@ -1,5 +1,5 @@
 
-#include "Base.hpp"
+#include "Identify.hpp"
 
 Base *generate(void)
 {
@@ -10,8 +10,9 @@ Base *generate(void)
 		return new A();
 	else if (num == 1)
 		return new B();
-	else if(num == 2)
+	else
 		return new C();
+	return NULL;
 }
 
 void identify(Base *p)
@@ -26,27 +27,29 @@ void identify(Base *p)
 
 void identify(Base &p)
 {
+	A a;
+	B b;
+	C c;
+
 	try
 	{
-        A &a = dynamic_cast<A &>(p);
+        a = dynamic_cast<A &>(p);
         std::cout << "A" << std::endl;
-        delete &a;
+
 	}
 	catch (std::exception &e){};
 
 	try
 	{
-        B &b = dynamic_cast<B &>(p);
+        b = dynamic_cast<B &>(p);
         std::cout << "B" << std::endl;
-        delete &b;
 	}
 	catch (std::exception &e){};
 
 	try
 	{
-        C &c = dynamic_cast<C &>(p);
+        c = dynamic_cast<C &>(p);
         std::cout << "C" << std::endl;
-        delete &c;
 	}
 	catch (std::exception &e){};
 }

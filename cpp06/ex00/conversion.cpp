@@ -6,6 +6,29 @@ conv::conv()
 	non_diplayable = false;
 }
 
+conv::conv(const conv &other)
+{
+	*this = other;
+}
+
+conv &conv::operator=(const conv &rhs)
+{
+	if (this != &rhs)
+	{
+		this->int_value = rhs.int_value;
+		this->char_value = rhs.char_value;
+		this->float_value = rhs.float_value;
+		this->double_value = rhs.double_value;
+		this->impossible = rhs.impossible;
+		this->non_diplayable = rhs.non_diplayable;
+		this->type = rhs.type;
+		this->value = rhs.value;
+		this->precesion = rhs.precesion;
+	}
+	return (*this);
+}
+
+
 bool maxInt(int nbr, std::string s2)
 {
 	std::string s1;
@@ -27,11 +50,14 @@ bool maxInt(int nbr, std::string s2)
 	return (true);
 }
 
-bool isValid(std::string str, size_t start)
+bool isValid(std::string str, size_t i)
 {
-	while (start++ < str.length() - 1)
-		if (!std::isdigit(str[start]) && str[start] != '.')
+	while (i < str.length() - 1)
+	{
+		if (!std::isdigit(str[i]) && str[i] != '.')
 			return (false);
+		i++;
+	}
 	return (true);
 }
 
@@ -45,55 +71,56 @@ std::string conv::getValue() const
 	return value;
 }
 
-int isPoint(std::string str, size_t start)
+int isPoint(std::string str, size_t i)
 {
 	bool point;
 
 	point = false;
-	while (start++ < str.length() - 1)
+	while (i < str.length() - 1)
 	{
-		if ((point && str[start] == '.'))
+		if ((point && str[i] == '.'))
 			return 2;
-		if (str[start] == '.')
+		if (str[i] == '.')
 			point = true;
+		i++;
 	}
 	if (point ^ (str[str.length() - 1] == '.'))
 		return 1;
 	return 0;
 }
 
-void conv::parsing(std::string &Type)
+void conv::parsing(std::string &str)
 {
-	size_t Tsize;
+	size_t size;
 	size_t i;
 
-	Tsize = Type.length();
+	size = str.length();
 	i = 0;
-	if (Tsize == 1 && !std::isdigit(Type[i]))
+	if (size == 1 && !std::isdigit(str[i]))
 	{
 		this->type = CHAR;
 		return;
 	}
-	else if (Type == "+inff" || Type == "-inff" || Type == "nanf")
+	else if (str == "+inff" || str == "-inff" || str == "nanf")
 	{
 		this->type = FLOAT;
 		impossible = true;
 		return;
 	}
-	else if (Type == "+inf" || Type == "-inf" || Type == "nan")
+	else if (str == "+inf" || str == "-inf" || str == "nan")
 	{
 		this->type = DOUBLE;
 		impossible = true;
 		return;
 	}
-	if (Type[i] == '+' || Type[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 		i++;
 	this->type = INT;
-	if ((isPoint(Type, i) == 1) && isValid(Type, i) && Type[Tsize - 1] == 'f')
+	if ((isPoint(str, i) == 1) && isValid(str, i) && str[size - 1] == 'f')
 		this->type = FLOAT;
-	else if (((isPoint(Type, i) == 1) && isValid(Type, i)) && (std::isdigit(Type[Tsize - 1]) || (Type[Tsize - 1] == '.')))
+	else if (((isPoint(str, i) == 1) && isValid(str, i)) && (std::isdigit(str[size - 1]) || (str[size - 1] == '.')))
 		this->type = DOUBLE;
-	else if ((isPoint(Type, i) == 2) || !(isValid(Type, i)) || (!std::isdigit(Type[Tsize - 1])))
+	else if ((isPoint(str, i) == 2) || !(isValid(str, i)) || (!std::isdigit(str[size - 1])))
 		this->type = ERROR;
 	return;
 }
@@ -134,18 +161,18 @@ void conv::SetTypes()
 		int_value = static_cast<int>(float_value);
 		double_value = static_cast<double>(float_value);
 		char_value = static_cast<char>(float_value);
-		if (!impossible && !std::isprint(int_value))
+		if (!std::isprint(int_value))
 			non_diplayable = true;
 	}
 	else if (this->type == DOUBLE)
 	{
-		double_value = atof(str.c_str());
+		double_value = std::atof(str.c_str());
 		if (!maxInt(double_value, value))
 			impossible = true;
 		float_value = static_cast<float>(double_value);
 		int_value = static_cast<int>(double_value);
 		char_value = static_cast<char>(double_value);
-		if (!impossible && !std::isprint(int_value))
+		if (!std::isprint(int_value))
 			non_diplayable = true;
 	}
 }
@@ -206,28 +233,6 @@ void conv::printTypes()
 int conv::GetType() const
 {
 	return (this->type);
-}
-
-conv::conv(const conv &other)
-{
-	*this = other;
-}
-
-conv &conv::operator=(const conv &rhs)
-{
-	if (this != &rhs)
-	{
-		this->int_value = rhs.int_value;
-		this->char_value = rhs.char_value;
-		this->float_value = rhs.float_value;
-		this->double_value = rhs.double_value;
-		this->impossible = rhs.impossible;
-		this->non_diplayable = rhs.non_diplayable;
-		this->type = rhs.type;
-		this->value = rhs.value;
-		this->precesion = rhs.precesion;
-	}
-	return (*this);
 }
 
 conv::~conv(){}

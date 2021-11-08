@@ -1,18 +1,15 @@
 #include "iter.hpp"
 
 template<typename T>
-void    ft_print(T x)
+void    print(T const x)
 {
     std::cout << x << std::endl;
 }
 
-int	main()
+int main ()
 {
-    int size = 10;
-	int arr[size];
-    srand(time(NULL));
-    for (int i = 0; i < 10; i++)
-        arr[i] = rand();
-	iter(arr, size, ft_print);
+    int tab[5] = {0, 1, 2, 3, 4};
+    iter(tab, 5, print);
+
     return 0;
 }

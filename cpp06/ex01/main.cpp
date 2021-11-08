@@ -1,5 +1,10 @@
 #include "Serialization.hpp"
 
+/*
+    uintptr_t is an unsigned integer type that is capable of storing a data pointer.
+    it's the same size as a pointer.
+*/
+
 int main()
 {
     Data *ptr_T1 = new Data();
