@@ -35,27 +35,23 @@ void Span::addNumber(int i)
 }
 void Span::addNumber(int i, int size)
 {
-	for (;i < size;i++)
+	while (i < size)
 	{
 		if (numbers.size() == n)
 			throw SizeFull();
 		else
 			numbers.push_back(i);
+		i++;
 	}
 }
 
 size_t Span::shortestSpan(void) const
 {
-	size_t size;
 	if (numbers.size() <= 1)
 		throw SmallSize();
 	std::vector<int> tmp(numbers);
 	std::sort(tmp.begin(), tmp.end());
-	size = abs(tmp[0] - tmp[1]);
-	for(size_t i = 2; i < tmp.size(); i++)
-		if (size > abs(tmp[i - 1] - tmp[i]))
-			size = abs(tmp[i - 1] - tmp[i]);
-	return size;
+	return abs(tmp[0] - tmp[1]);
 }
 
 size_t Span::longestSpan(void) const
