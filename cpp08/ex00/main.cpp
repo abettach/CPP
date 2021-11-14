@@ -10,17 +10,17 @@ int main()
 	container.push_back(0);
 	container.push_back(-8);
 
-    // int i = 0;
-    // for (i = 0; i < container.size() ; i++)
-    // {
-    //     if (*easyfind(container, 523) == container[i])
-    //     {
-    //         std::cout << "found!" << std::endl;
-    //         break;
-    //     }
-    // }
-    // if (i == container.size())
-    //     std::cout << "not found!" << std::endl;
-    std::cout << *easyfind(container, 14) << std::endl;
+    size_t i = 0;
+    for (i = 0; i < container.size() ; i++)
+    {
+        if (*easyfind(container, 14) == container[i])
+        {
+            std::cout << "found!" << std::endl;
+            break;
+        }
+    }
+    if (i == container.size())
+        std::cout << "not found!" << std::endl;
+
     return 0;
 }

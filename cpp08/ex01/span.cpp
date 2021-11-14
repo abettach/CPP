@@ -1,5 +1,7 @@
 #include "span.hpp"
 
+Span::Span() : n(0) {}
+
 Span::Span(unsigned int n) : n(n){}
 
 Span::Span(Span const &other)
@@ -33,6 +35,7 @@ void Span::addNumber(int i)
 	else
 		numbers.push_back(i);
 }
+
 void Span::addNumber(int i, int size)
 {
 	while (i < size)

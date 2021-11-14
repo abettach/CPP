@@ -12,7 +12,8 @@ class Span
 	    std::vector<int> numbers;
 
 	public:
-		Span(unsigned int n = 0);
+		Span();
+		Span(unsigned int n);
 		Span(Span const & other);
 		Span & operator=(Span const & other);
 		~Span(void);

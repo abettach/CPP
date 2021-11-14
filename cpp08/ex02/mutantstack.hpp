@@ -1,26 +1,28 @@
-#ifndef MUTANT_STACK_HPP
-#define MUTANT_STACK_HPP
+#ifndef MUTANSTACK_HPP
+#define MUTANSTACK_HPP
+
 #include <iostream>
 #include <stack>
 #include <vector>
 #include <list>
 
-template <typename T>
-class MutantStack : public std::stack<T>
+template <typename T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
-public:
-	typedef typename std::stack<T>::container_type::iterator iterator;
-	MutantStack(void) : std::stack<T>() {}
-	MutantStack(MutantStack const &other) { *this = other;}
-	MutantStack &operator=(MutantStack const &other)
-	{
-		if (this != &other)
-			this->c = other.c;
-		return (*this);
-	}
-	iterator begin(void) {return (this->c.begin());}
-	iterator end(void) {return this->c.end();}
-	~MutantStack(void) {}
+	public:
+		MutantStack(void) : std::stack<T, Container>() {}
+		MutantStack(const MutantStack &other): std::stack<T, Container>(other){};
+		MutantStack &operator=(MutantStack const &rhs)
+		{
+			this->c = rhs.c;
+			return (*this);
+		}
+		typedef typename std::stack<T, Container>::container_type::iterator iterator;
+	
+		iterator begin(void)				{return (this->c.begin());}
+		iterator end(void)					{return this->c.end();}
+	
+		~MutantStack( void ) {}
 };
 
 #endif
